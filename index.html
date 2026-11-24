@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TGT2Y7KLF3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TGT2Y7KLF3');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<meta name="theme-color" content="#d4381c">
+<title>伝わるラボ｜情報デザインを体験して学ぶ授業教材（中学校 情報・技術科）</title>
+<meta name="description" content="情報デザインの授業でそのまま使えるWeb教材。読みにくい緊急メール・ポスター・Webサイトを、文字の大きさ・色・箇条書き・ユニバーサルデザイン・やさしい日本語などの工夫で「伝わる」デザインに改善します。10秒テスト、問題さがし、4人の視点（ユーザ視点）、3つだけチャレンジ、ふりかえりのPDF提出まで。中学校の新教科「情報・技術科」や技術・家庭科、高校「情報Ⅰ」に。">
+<meta name="keywords" content="情報デザイン,授業,教材,中学校,情報・技術科,技術・家庭科,情報Ⅰ,ユニバーサルデザイン,ユーザ視点,やさしい日本語,デザインの4原則,近接,整列,反復,対比,GIGAスクール">
+<meta property="og:type" content="website">
+<meta property="og:title" content="伝わるラボ｜情報デザインを体験して学ぶ授業教材">
+<meta property="og:description" content="読みにくいメール・ポスター・サイトを、工夫を選んで「伝わる」デザインに。中学校 情報・技術科の情報デザインの授業にそのまま使えるWeb教材。">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LearningResource","name":"伝わるラボ｜情報デザインを体験して学ぶ授業教材","description":"緊急メール・ポスター・Webサイトを題材に、情報デザインの工夫（文字・色・整理・ユニバーサルデザイン・やさしい日本語）を体験して学ぶ授業用Web教材。","inLanguage":"ja","learningResourceType":"interactive resource","educationalLevel":"中学校","teaches":["情報デザイン","ユーザ視点の情報デザイン","ユニバーサルデザイン","やさしい日本語"],"keywords":"情報デザイン, 授業, 教材, 中学校, 情報・技術科, 情報Ⅰ","isAccessibleForFree":true}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DM+Mono:wght@400;500&family=Zen+Kaku+Gothic+New:wght@700;900&family=Yuji+Syuku&display=swap" rel="stylesheet">
+<style>
+/* 方針：授業プリントと公共サインの中間。紙色・墨・朱・蛍光ペンの黄だけ。角は立て、影はぼかさない。
+   UI の書体は BIZ UDPゴシック（このアプリ自身が「UDフォント」の実例になる）。数字は等幅。 */
+:root{color-scheme:light dark;
+--paper:light-dark(#f2efe6,#161510);--panel:light-dark(#fbf9f3,#1e1d17);--ink:light-dark(#16140e,#ebe7da);
+--sub:light-dark(#686355,#a39e8f);--hair:light-dark(#d6d0c0,#3a372e);--grid:light-dark(rgba(22,20,14,.07),rgba(235,231,218,.06));
+--shu:light-dark(#d4381c,#ff6d4d);--mark:#ffd23f;--hl:light-dark(#ffd23f,rgba(255,210,63,.4));--ok:light-dark(#1b7a45,#5ccf8b);
+--ui:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif;--disp:"Zen Kaku Gothic New","Hiragino Sans",sans-serif;--mono:"DM Mono",ui-monospace,monospace;
+--dockw:420px;--phw:clamp(320px,calc((100dvh - 160px)*.7),520px);font-size:15px}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+:root.present{font-size:19px;--dockw:500px;--phw:clamp(360px,calc((100dvh - 170px)*.75),720px)}
+*{box-sizing:border-box;min-width:0}
+html,body{height:100%;margin:0}
+body{background:var(--paper);color:var(--ink);font:1rem/1.55 var(--ui);overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0;border-radius:0}
+:focus-visible{outline:3px solid var(--shu);outline-offset:2px}
+[hidden]{display:none!important}
+.app{height:100vh;height:100dvh;display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;grid-template-areas:"top" "steps" "stage" "dock"}
+
+/* 上の帯 */
+.top{grid-area:top;display:flex;align-items:stretch;border-bottom:1.5px solid var(--ink);background:var(--paper);min-height:46px}
+.brand{margin:0;display:flex;align-items:center;gap:9px;padding:0 12px;font:900 1.08rem/1 var(--disp);white-space:nowrap;border-right:1.5px solid var(--ink)}
+.brand span{display:flex;flex-direction:column;gap:3px}.brand small{font:700 .62rem/1 var(--ui);color:var(--sub);letter-spacing:.06em}
+.brand i{width:26px;height:26px;border:2px solid var(--shu);border-radius:50%;color:var(--shu);display:grid;place-items:center;font:400 15px/1 "Yuji Syuku",serif;font-style:normal;transform:rotate(-8deg);flex:none}
+.scn{display:flex}
+.scn button{padding:0 12px;font-weight:700;color:var(--sub);border-right:1px solid var(--hair);white-space:nowrap;font-size:.95rem}
+.scn button[aria-pressed=true]{color:#16140e;background:var(--mark)}
+.tr{margin-inline-start:auto;display:flex}
+.timer{display:flex;border-left:1.5px solid var(--ink)}
+.timer button{padding:0 12px;font:500 1.05rem/1 var(--mono);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.timer #tmr{padding:0 10px;border-left:1px solid var(--hair);font-size:1rem}
+.timer .pl{font-size:.7rem}
+.timer.run #tmb{background:var(--ink);color:var(--paper)}
+.timer.over #tmb{background:var(--shu);color:#fff}
+.gb{padding:0 14px;font-weight:700;border-left:1.5px solid var(--ink);white-space:nowrap}
+
+/* 学習過程のライン */
+.steps{grid-area:steps;display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1.5px solid var(--ink);background:var(--paper)}
+.steps button{flex:1 0 auto;display:flex;align-items:baseline;gap:7px;padding:8px 12px 9px;border-right:1px solid var(--hair);text-align:start;position:relative;color:var(--sub)}
+.steps button:last-child{border-right:0}
+.steps .no{font:500 .78rem/1 var(--mono)}
+.steps .nm{font-weight:700;white-space:nowrap;font-size:.92rem}
+.steps .ph{display:none;font-size:.72rem;white-space:nowrap}
+.steps button[aria-current=step]{color:var(--ink);background:var(--panel)}
+.steps button[aria-current=step]::after{content:"";position:absolute;left:0;right:0;bottom:-1.5px;height:4px;background:var(--shu)}
+.steps button.fin .no{color:var(--ok)}.steps button.fin .no::after{content:" ✓"}
+
+/* 作業面 */
+.stage{grid-area:stage;position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 12px 12px;overflow:hidden;background-color:var(--paper);
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;background-position:-1px -1px}
+.hud{width:100%;max-width:420px;display:flex;align-items:center;gap:14px;font-size:.82rem;font-weight:700;border-bottom:1.5px solid var(--ink);padding-bottom:5px;min-height:34px}
+.hud>span{display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+.hud .n{font:500 1.3rem/1 var(--mono)}.hud small{font-size:.75em;color:var(--sub)}
+.marks{display:flex;gap:3px;align-self:center}.marks i{width:10px;height:10px;border:1.5px solid var(--ink)}.marks i.y{background:var(--ink)}
+#reset{margin-inline-start:auto;text-decoration:underline;text-underline-offset:3px;min-height:34px;white-space:nowrap}
+.phones{flex:1;min-height:0;width:100%;display:flex;justify-content:center;gap:14px}
+.phone{position:relative;flex:1 1 0;max-width:420px;min-height:0;border:7px solid #111;border-radius:26px;background:#111;box-shadow:5px 5px 0 var(--hair)}
+.pb{display:none}.duo .pb{display:block}
+.scr{position:absolute;inset:0;border-radius:19px;overflow:hidden;background:#fff;container-type:inline-size}
+.scroll{position:absolute;inset:0;top:var(--bh);overflow-y:auto;overscroll-behavior:contain;transition:filter .3s}
+.scr{--bh:0px}[data-kind=mail] .scr,[data-kind=site] .scr{--bh:9cqw}
+.bar{display:none;position:absolute;left:0;right:0;top:0;height:var(--bh);z-index:2;align-items:center;justify-content:center;font:600 3.3cqw/1 system-ui,sans-serif;color:#1f2937;background:#f3f4f6;border-bottom:1px solid #e5e7eb}
+[data-kind=mail] .bar,[data-kind=site] .bar{display:flex}
+.bar .bk{position:absolute;left:3cqw;color:#2563eb;font-weight:500}
+.bar.url{padding:0 3cqw}.bar.url span{flex:1;background:#e5e7eb;border-radius:2cqw;padding:1.3cqw 3cqw;color:#374151;font-weight:500;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+[data-kind=poster] .phone{border:0;border-radius:0;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.1),5px 6px 0 var(--hair);flex:0 1 auto;height:100%;aspect-ratio:1/1.414;max-width:100%}
+[data-kind=poster].duo .phone{max-width:calc(50% - 7px)}
+[data-kind=poster] .scr{border-radius:0}
+.inner{position:relative;min-height:100%;overflow:hidden;display:flex;flex-direction:column}
+.ptag{display:none;position:absolute;left:50%;top:-25px;transform:translateX(-50%);z-index:3;background:#16140e;color:#fff;font-size:12px;font-weight:700;line-height:1;padding:5px 12px;white-space:nowrap;pointer-events:none}
+.duo .phones{margin-top:25px}
+.pb .ptag{background:#8a8577}
+.duo .ptag{display:block}
+.duo .card{font-size:var(--fs)}.duo .card.f-size{font-size:var(--fsb)}
+.toast{position:absolute;left:0;right:0;bottom:0;z-index:4;background:#16140e;color:#f2efe6;border-top:4px solid var(--mark);padding:9px 14px 12px;font-size:13.5px;line-height:1.45;transform:translateY(105%);transition:transform .25s;pointer-events:none}
+.toast.show{transform:none}
+.toast em{display:block;font:500 11px/1.2 var(--mono);color:var(--mark);font-style:normal;margin-bottom:2px}.toast b{display:block;font-size:14.5px}
+.cd{position:absolute;inset:0 0 auto 0;height:44px;z-index:6;display:none;align-items:center;gap:10px;padding:0 16px;background:#16140e;color:#fff;font-weight:700;font-size:13px}
+.cd i{flex:1;height:6px;background:var(--mark);transform-origin:left}
+.counting .cd{display:flex}.counting .cd i{animation:cd 10s linear forwards}
+.counting .scroll{top:calc(44px + var(--bh))}.counting .bar{top:44px}
+@keyframes cd{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.cd b{font:500 22px/1 var(--mono);width:26px;text-align:center}
+.cover{position:absolute;inset:0;z-index:5;display:none;flex-direction:column;align-items:center;justify-content:center;gap:3cqw;background:#f2efe6;overflow-y:auto;
+background-image:repeating-linear-gradient(-45deg,transparent 0 14px,rgba(22,20,14,.05) 14px 15px);color:#16140e;text-align:center;padding:7cqw;font-weight:700}
+.covered .cover{display:flex}
+.cover[data-p=q]{align-items:stretch}
+.cover .qm{font:900 18cqw/1 var(--disp);color:#d4381c}
+.cover .ct{font-size:4.4cqw;line-height:1.5;margin:0}
+.cover .ct small{display:block;font-size:.8em;color:#686355;margin-top:1.5cqw}
+.cbtn{min-height:12.5cqw;padding:0 9cqw;background:#16140e;color:#f2efe6;font-weight:700;font-size:4.6cqw;border:1.5px solid #16140e}
+.cbtn.alt{background:#fbf9f3;color:#16140e}
+.crow{display:flex;gap:2.5cqw;flex-wrap:wrap;justify-content:center;width:100%;margin-top:2cqw}
+.crow .cbtn{flex:1 1 40%;padding:0 3cqw}
+.cq{font:900 6.4cqw/1.35 var(--disp);margin:0 0 3cqw;text-align:left}
+.cq span{display:block;font:500 3.6cqw/1 var(--mono);color:#d4381c;margin-bottom:2.5cqw}
+.copt{display:flex;align-items:center;gap:3.5cqw;width:100%;text-align:left;min-height:15cqw;padding:3cqw 4.5cqw;border:1.5px solid #16140e;background:#fbf9f3;color:#16140e;font-weight:700;font-size:4.5cqw;line-height:1.4;margin-top:-1.5px}
+.copt::before{content:attr(data-l);font:500 3.6cqw/1 var(--mono);color:#686355;flex:none}
+.copt.ok{background:#ffd23f}.copt.ok::after{content:"正解";margin-left:auto;font-size:3.6cqw;color:#1b7a45;flex:none}
+.copt.ng{text-decoration:line-through;text-decoration-color:#d4381c;text-decoration-thickness:2px}
+.copt:disabled{cursor:default}
+.copt.dk{margin-top:2.5cqw;border-style:dashed;color:#686355}.copt.dk.sel{background:#e4dfd2;color:#16140e;border-style:solid}
+.cres{font-size:4.6cqw;margin:0}.cres b{display:block;font:500 22cqw/1 var(--mono);color:#d4381c;margin:1cqw 0}.cres small{font-size:.6em;color:#686355}
+.cvs{display:flex;gap:4cqw;justify-content:center;font-size:3.8cqw;color:#686355}.cvs b{color:#16140e;font:500 1.3em var(--mono)}
+#pins{position:absolute;inset:0;pointer-events:none;z-index:2}
+.pin{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:#d4381c;color:#fff;font:500 13px/26px var(--mono);text-align:center;box-shadow:0 0 0 3px #fff;animation:pop .3s cubic-bezier(.3,1.6,.5,1)}
+.pin.miss{background:#8a8577}
+@keyframes pop{from{transform:scale(0)}}
+.hunt [data-h]{cursor:pointer}.hunt .got{outline:2px dashed #d4381c;outline-offset:2px}
+.slot{display:none;flex:none;width:2em;height:2em;margin:-.3em 0}.hunt .slot{display:block}
+
+/* お知らせカード（初期はわざと見にくい）。大きさはスマホ画面の幅に比例 */
+.card{--pad:2.6cqw;--fs:3.4cqw;--fsb:4.8cqw;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-size:max(12px,var(--fs));word-break:auto-phrase;line-height:1.25;color:#a6a6a6;background:#f2f2f2;padding:var(--pad);display:flex;flex-direction:column;--gap:.25em;gap:var(--gap);flex:1 0 auto}
+.card p{margin:0}
+.hd{order:1;display:flex;flex-wrap:wrap;align-items:center;gap:.4em .7em}.hd b{font-weight:400}.lv{margin-inline-start:auto;white-space:nowrap}
+.ic,.en,.list,.fig,.ez{display:none}.list{margin:0;padding:0;list-style:none}
+.para{order:3}.act{order:6}.btn{order:7;color:#a9b6c4;text-decoration:underline}.time{order:8;font-size:.85em}
+.f-size{font-size:max(15px,var(--fsb))}.f-size .hd b{font-size:1.4em}
+.f-lead{line-height:1.75}
+.f-contrast{color:#1a1a1a;background:#fff}.f-contrast .btn{color:#0b57d0}.f-contrast .time{color:#555}
+.f-ud{font-family:"BIZ UDPGothic","Hiragino Sans",sans-serif}
+.f-first .act{order:2;font-weight:700;font-size:1.22em;line-height:1.35;border-inline-start:.4em solid currentColor;padding-inline-start:.7em}
+.card{--acc:#c8102e}.k-poster{--acc:#c2410c}.k-site{--acc:#1d4ed8}
+.f-red.f-first .act{color:var(--acc)}
+.f-list .para{display:none}.f-list .list{display:grid;order:3}
+.list li{display:grid;grid-template-columns:5.6em minmax(0,1fr);gap:.6em;padding:.25em 0;border-bottom:1px solid rgba(0,0,0,.08)}.list b{font-weight:700}
+.f-space{--pad:5.3cqw;--gap:1.1em}.f-space .list li{padding:.65em 0}
+.f-fig .fig{display:block;order:4}.fig svg{display:block;width:100%;height:auto;border-radius:.6em}
+.f-red .hd{background:var(--acc);color:#fff;margin:calc(-1*var(--pad)) calc(-1*var(--pad)) 0;padding:3.7cqw var(--pad)}
+.f-red .hd b{font-weight:700}.f-red .lv{background:#fff;color:var(--acc);padding:.15em .6em;border-radius:.4em;font-weight:700;font-size:.85em}
+.f-icon .ic{display:block;width:2em;height:2em;flex:none}
+.qr{display:none}
+.k-poster.f-btn .btn{flex-direction:row;justify-content:flex-start;gap:.8em;background:#fff;color:#1a1a1a;border:.15em solid #1a1a1a;padding:.6em .8em;text-align:left}
+.k-poster.f-btn .qr{display:block;width:3.6em;height:3.6em;flex:none}
+.f-btn .btn{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:14.9cqw;background:#0b57d0;color:#fff;border-radius:3.7cqw;text-decoration:none;font-weight:700;font-size:max(4.5cqw,1em);text-align:center}
+.f-en .en{display:block;font-size:.8em;opacity:.85;font-family:system-ui,sans-serif;font-weight:400;line-height:1.35}
+.f-easy .std{display:none}.f-easy .ez{display:inline}
+.hurry .scroll{-webkit-mask-image:linear-gradient(#000 30%,rgba(0,0,0,.07) 52%);mask-image:linear-gradient(#000 30%,rgba(0,0,0,.07) 52%)}
+.foreign .ja{opacity:.13}.foreign .ja.ez{opacity:.8}
+/* 共通：小見出し（お店の名前・パンくずリスト） */
+.kick{display:block;font-size:.85em}
+/* ポスター：全部つけると「お店のポスター」らしく（1枚の紙に収まる組み方） */
+.k-poster{--fsb:3.9cqw}
+.k-poster.f-contrast{background:#fff8ec;color:#3b2414}.k-poster.f-contrast .time{color:#7c5a3c}
+.k-poster.f-space{--pad:4.6cqw;--gap:.75em}
+.k-poster.f-size .hd b{font:900 2.15em/1.1 "Zen Kaku Gothic New",sans-serif;letter-spacing:.02em}
+.k-poster.f-size .kick{font-size:.9em;font-weight:700;letter-spacing:.2em}
+.k-poster.f-size .lv{margin-inline-start:0;font-size:.95em;font-weight:700}
+.k-poster.f-red .hd{padding:5cqw var(--pad) 4.6cqw;color:#fff8ec;row-gap:.5em}
+.k-poster.f-red .lv{background:#fff8ec;color:var(--acc);border-radius:999px;padding:.3em .95em}
+.k-poster.f-en .hd .en{font-size:.72em;letter-spacing:.04em;opacity:.8}
+.k-poster.f-first .act{border:0;padding:0;text-align:center;line-height:1.45;font-size:.98em}
+.k-poster.f-first .act .hl{display:block;font:900 2em/1.08 "Zen Kaku Gothic New",sans-serif;color:var(--acc);letter-spacing:-.02em;margin:.1em 0 .25em}
+.k-poster.f-en .act .en{font-size:.74em;margin-top:.3em}
+.k-poster.f-fig .fig{order:2;margin:0 calc(-1*var(--pad))}
+.k-poster .fig svg{border-radius:0;aspect-ratio:2.4/1}
+/* 大きなコピーと絵を横に並べる（本物のポスターに多い組み方） */
+.k-poster.f-first.f-fig{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-content:start;column-gap:4cqw}
+.k-poster.f-first.f-fig>*{grid-column:1/-1}
+.k-poster.f-first.f-fig .act{grid-column:1;align-self:center;text-align:left}
+.k-poster.f-first.f-fig .fig{grid-column:2;margin:0 calc(-1*var(--pad)) 0 0;align-self:stretch}
+.k-poster.f-first.f-fig .fig svg{aspect-ratio:auto;height:100%;min-height:34cqw;border-radius:50% 0 0 50%/50% 0 0 50%}
+.k-poster.f-list .list{grid-template-columns:1fr 1fr;gap:.45em}
+.k-poster.f-first.f-list .list{grid-template-columns:repeat(3,minmax(0,1fr))}
+.k-poster.f-first .list li:first-child{display:none}
+.k-poster.f-list .list li{display:block;border:0;background:rgba(124,45,18,.07);border-radius:.5em;padding:.55em .65em;font-size:.84em;line-height:1.4}
+.k-poster.f-list .list li>b{display:flex;align-items:center;gap:.3em;font-size:.82em;letter-spacing:.12em;color:var(--acc);margin-bottom:.2em}
+.k-poster.f-en .list .en{display:none}
+.k-poster.f-btn .btn{border-radius:.5em;padding:.45em .7em;font-size:.95em;min-height:0}
+.k-poster.f-btn .btn .en{font-size:.72em}
+.k-poster .time{text-align:center}
+.k-poster.f-icon.f-list .list li>b::before,.k-site.f-icon.f-list .list li>b::before{content:"";width:1.35em;height:1.35em;flex:none;background:currentColor;-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
+.k-poster .list li:nth-child(1)>b{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4l-5.3 3 1.2-6-4.5-4.1 6-.7z'/%3E%3C/svg%3E")}.k-poster .list li:nth-child(2)>b{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'%3E%3Crect x='3.5' y='5' width='17' height='15' rx='2'/%3E%3Cpath d='M3.5 10h17M8 3v4M16 3v4'/%3E%3C/svg%3E")}.k-poster .list li:nth-child(3)>b{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z'/%3E%3Ccircle cx='12' cy='11' r='2'/%3E%3C/svg%3E")}.k-poster .list li:nth-child(4)>b{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M4 16v-4l2-5h12l2 5v4zM6.5 16v3M17.5 16v3'/%3E%3Ccircle cx='8' cy='13' r='.6'/%3E%3Ccircle cx='16' cy='13' r='.6'/%3E%3C/svg%3E")}
+/* サイト：全部つけると「学校のWebページ」らしく */
+.k-site{--fsb:4.1cqw}
+.nav{order:0;display:flex;align-items:center;gap:.6em;margin:calc(-1*var(--pad)) calc(-1*var(--pad)) 0;padding:.5em var(--pad);font-size:.85em;border-bottom:1px solid rgba(0,0,0,.08)}
+.nav b{font-weight:400;white-space:nowrap}.nav .menu{margin-inline-start:auto;white-space:nowrap}
+.nav .lang{display:none}
+.k-site.f-contrast .nav{background:#fff;color:#0f172a;border-bottom-color:#e2e8f0}.k-site.f-contrast .nav .menu{color:#475569}
+.k-site.f-size .nav b{font-weight:800;font-size:1.08em}
+.k-site.f-space .nav{padding:.85em var(--pad)}
+.k-site.f-en .nav .lang{display:inline-block;margin-inline-start:auto;border:1px solid currentColor;border-radius:999px;padding:.05em .7em;font-size:.82em;opacity:.8}
+.k-site.f-en .nav .lang+.menu{margin-inline-start:.4em}
+.k-site.f-icon .nav b::before{content:"";display:inline-block;width:1.1em;height:1.1em;margin-right:.35em;vertical-align:-.15em;border-radius:50%;background:var(--acc);box-shadow:inset 0 0 0 .25em #fff,0 0 0 .1em var(--acc)}
+.k-site .hd .ic{display:none}
+.k-site.f-red .hd{margin:calc(-1*var(--gap)) calc(-1*var(--pad)) 0;padding:6.5cqw var(--pad) 6cqw;color:#fff;background:radial-gradient(120% 90% at 100% 0%,#60a5fa 0%,transparent 55%),linear-gradient(140deg,#1e3a8a,#1d4ed8)}
+.k-site.f-red .kick{color:#bfdbfe;font-size:.78em;margin-bottom:.3em}
+.k-site.f-red .lv{margin-inline-start:0;background:#facc15;color:#1e293b;border-radius:999px;font-size:.85em;padding:.2em .8em}
+.k-site.f-size .hd b{font:900 1.5em/1.3 "Zen Kaku Gothic New",sans-serif}
+.k-site.f-en .hd .en{font-size:.74em;opacity:.85;margin-top:.2em}
+.k-site.f-first .act{border:0;background:#fff7ed;color:#9a3412;border-radius:.6em;padding:.85em 1em;box-shadow:inset .3em 0 0 #f97316;font-size:.95em;font-weight:400;line-height:1.55}
+.k-site.f-first .act .hl{display:block;font-weight:900;font-size:1.1em;margin-bottom:.15em}
+.k-site.f-en .act .en{font-size:.78em;margin-top:.3em}
+.k-site.f-list .list{gap:.5em}
+.k-site.f-list .list li{display:block;background:#f8fafc;border:1px solid #e2e8f0;border-radius:.7em;padding:.7em .9em;font-size:.95em;line-height:1.5}
+.k-site.f-list .list li>b{display:flex;align-items:center;gap:.35em;font-size:.78em;letter-spacing:.06em;color:var(--acc);margin-bottom:.1em}
+.k-site.f-en .list .en{display:none}
+.k-site .list li:nth-child(1)>b{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M4 20h4L19 9l-4-4L4 16zM14 6l4 4'/%3E%3C/svg%3E")}.k-site .list li:nth-child(2)>b{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'%3E%3Crect x='3.5' y='5' width='17' height='15' rx='2'/%3E%3Cpath d='M3.5 10h17M8 3v4M16 3v4'/%3E%3C/svg%3E")}.k-site .list li:nth-child(3)>b{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M3 10l9-6 9 6v10H3zM9 20v-6h6v6'/%3E%3C/svg%3E")}.k-site .list li:nth-child(4)>b{--m:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M5 8h14l-1 12H6zM9 8a3 3 0 0 1 6 0'/%3E%3C/svg%3E")}
+.k-site.f-fig .fig svg{border:1px solid #dbeafe;border-radius:.7em}
+.k-site.f-btn .btn{border-radius:999px;box-shadow:0 .35em .9em rgba(29,78,216,.28);background:var(--acc);font-size:1.05em;min-height:12cqw}
+.k-site.f-btn .btn .en{font-size:.7em}
+.k-site .time{margin-top:auto}
+.k-site.f-red .time{background:#0f172a;color:#94a3b8;margin:auto calc(-1*var(--pad)) calc(-1*var(--pad));padding:1.2em var(--pad);font-size:.78em}
+.flash{animation:flash 1.1s ease-out}
+@keyframes flash{0%,40%{box-shadow:0 0 0 3px #ffd23f,0 0 0 9px rgba(255,210,63,.4)}100%{box-shadow:0 0 0 3px rgba(255,210,63,0),0 0 0 14px rgba(255,210,63,0)}}
+
+/* 道具トレー */
+.dock{grid-area:dock;background:var(--panel);border-top:1.5px solid var(--ink);padding-bottom:env(safe-area-inset-bottom);max-height:40dvh;overflow-y:auto}
+.note{display:none}
+.tabs{display:flex;align-items:stretch;border-bottom:1.5px solid var(--ink);position:sticky;top:0;background:var(--panel);z-index:1;overflow-x:auto;scrollbar-width:none}
+.tabs button{flex:none;padding:0 12px;min-height:44px;font-weight:700;color:var(--sub);border-bottom:4px solid transparent;margin-bottom:-1.5px;white-space:nowrap}
+.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--ink)}
+.tabs .cmpb{margin-inline-start:auto;border-left:1.5px solid var(--ink);border-bottom:0;margin-bottom:0;padding:0 14px;color:var(--ink)}
+.tabs .cmpb[aria-pressed=true]{background:var(--ink);color:var(--panel)}
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.tl li{border-bottom:1px solid var(--hair)}.tl li:nth-child(odd){border-right:1px solid var(--hair)}
+.row{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:center;width:100%;text-align:start;padding:9px 12px;min-height:54px}
+.row:hover{background:var(--paper)}
+.box{width:20px;height:20px;border:2px solid var(--ink);display:grid;place-items:center}
+.box.rd{border-radius:50%}
+.row[aria-pressed=true] .box{background:var(--ink)}
+.row[aria-pressed=true] .box::after{content:"";width:9px;height:5px;border:solid var(--panel);border-width:0 0 2.5px 2.5px;transform:translate(0,-1px) rotate(-45deg)}
+.row[aria-pressed=true] .box.rd::after{width:6px;height:6px;border:0;border-radius:50%;background:var(--panel);transform:none}
+.row .t{font-weight:700;line-height:1.3}
+.row[aria-pressed=true] .t{background:linear-gradient(transparent 58%,var(--hl) 58%)}
+.row .r{display:block;font-size:.74rem;color:var(--sub);line-height:1.3;margin-top:1px}
+.row.no{animation:shake .35s}
+.tl.one{grid-template-columns:1fr;border-top:1.5px solid var(--ink)}.tl.one li{border-right:0}.tl.one .row{padding-inline:4px}
+.pv{border:1.5px solid var(--ink);padding:12px 14px;margin-top:12px}
+.vsteps{margin:0 0 12px;padding-left:1.3em;font-size:.86rem;color:var(--sub)}.vsteps li{margin:2px 0}.vsteps b{color:var(--ink)}
+.pv .pwho{margin:4px 0 10px;font-size:.9rem;line-height:1.6;font-weight:400}
+.flt{border:1.5px dashed var(--ink);padding:8px 10px;font-size:.85rem;line-height:1.5;margin-bottom:8px}
+.flt span{display:block;font-size:.72rem;color:var(--sub);font-weight:700}
+.nof{display:flex;gap:8px;align-items:center;font-size:.85rem;margin-bottom:10px;cursor:pointer}
+.nof input{min-height:0;width:18px;height:18px;padding:0;margin:0;accent-color:#16140e}
+.pv .q{background:var(--hl);color:#16140e;padding:7px 9px;font-weight:700;font-size:.9rem;margin:0 0 10px}
+.pv.done{border-color:var(--ok);border-width:2px}
+.pv.mis{margin:0 0 4px;background:var(--paper)}
+.sh{display:flex;align-items:center;gap:8px;margin:16px 0 8px;font-size:.95rem}.sh span{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--panel);font:500 .8rem/1 var(--mono)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{border:1.5px solid var(--ink);padding:6px 12px;min-height:40px;font-weight:700;font-size:.88rem}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--panel)}.chip:disabled,.vtl .row:disabled{opacity:.45;cursor:not-allowed}
+.tgo{width:100%;margin-top:8px}.why3{width:100%;min-height:80px;display:block}
+.res{list-style:none;margin:6px 0 10px;padding:0}.res li{display:grid;grid-template-columns:28px 1fr;gap:4px 8px;padding:6px 0;border-top:1px solid var(--hair);font-weight:700;font-size:.92rem}
+.res li b{font-size:1.1rem}.res li span{grid-column:2;font-weight:400;font-size:.82rem;color:var(--sub)}.res li.me{background:var(--hl);color:#16140e}.res li.me span{color:#16140e}
+.vprog{font-size:.9rem!important;font-weight:400!important;margin:4px 0 8px!important}.vprog b{font-size:1.1rem}.vprog .ok{color:var(--ok)}
+.vtl{grid-template-columns:1fr 1fr!important;border-top:1px solid var(--hair)}.vtl li:nth-child(odd){border-right:1px solid var(--hair)!important}
+.vtl .row{padding:7px 6px!important;min-height:44px!important;grid-template-columns:18px minmax(0,1fr)!important;gap:7px!important}.vtl .box{width:18px;height:18px}
+.vtl .tx{display:block!important}.vtl .t{font-size:.86rem}.vtl .r{white-space:normal!important;font-size:.7rem!important}
+.pv em{font-style:normal;font-weight:700;font-size:.8rem;color:var(--sub)}.pv>b{display:block;font-size:1.02rem;margin:2px 0 10px}
+.pv p{margin:0 0 4px;font-weight:700;font-size:.82rem}.pv ul{list-style:none;margin:0;padding:0}
+.pv li{padding:7px 0;border-top:1px solid var(--hair);font-size:.86rem;color:var(--sub)}.pv li b{display:block;color:var(--ink);font-size:.95rem}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.why{padding:10px 12px;border-bottom:1px solid var(--hair)}
+.why label{display:block;font-size:.8rem;font-weight:700;margin-bottom:4px}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--panel);border:1.5px solid var(--ink);border-radius:0;padding:8px 10px;min-height:44px}
+.why input{width:100%}
+.side{display:none}
+.pad{padding:10px 12px 14px}
+.lead{margin:0 0 10px;font-size:.92rem;color:var(--sub)}.lead b{display:block;color:var(--ink);font:900 1.08rem/1.35 var(--disp);margin-bottom:2px}
+.flist{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.flist li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;padding:8px 0;border-bottom:1px solid var(--hair);font-size:.9rem}
+.flist .no{width:24px;height:24px;border-radius:50%;background:#d4381c;color:#fff;font:500 12px/24px var(--mono);text-align:center}
+.flist li.miss .no{background:#8a8577}.flist li.ex .no{background:none;color:var(--sub);border:1.5px dashed var(--sub);line-height:21px}
+.flist b{font-size:.97rem}.flist p{margin:2px 0 0;color:var(--sub)}.flist small{display:block;font-weight:700;margin-top:2px;font-size:.78rem}
+.row2{display:flex;gap:8px;margin:0 0 10px;flex-wrap:wrap}
+.big{flex:1 1 130px;min-height:48px;background:var(--ink);color:var(--panel);font-weight:700;padding:6px 12px;border:1.5px solid var(--ink)}
+.big.alt{background:none;color:var(--ink)}.big:disabled{opacity:.35;cursor:not-allowed}
+.opt{display:flex;align-items:center;gap:10px;width:100%;text-align:start;min-height:50px;border:1.5px solid var(--ink);background:var(--panel);padding:8px 12px;font-weight:700;margin-top:-1.5px}
+.opt::before{content:attr(data-l);font:500 .8rem/1 var(--mono);color:var(--sub)}
+.opt.ok{background:var(--hl);color:var(--ink)}.opt.ok::after{content:"正解";margin-inline-start:auto;font-size:.8rem;color:var(--ok)}
+.opt.ng{text-decoration:line-through;text-decoration-color:var(--shu);text-decoration-thickness:2px}
+.qq{font:900 1.15rem/1.4 var(--disp);margin:0 0 10px}
+.score{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);margin-top:4px}
+.score div{padding:8px 12px;font-size:.8rem;font-weight:700}.score div+div{border-left:1.5px solid var(--ink)}
+.score b{display:block;font:500 1.9rem/1.1 var(--mono)}.score small{font-size:.55em;color:var(--sub)}.score .up{color:var(--ok)}
+
+/* シート（ガイド・ふりかえり） */
+.sheet{position:fixed;inset:0;z-index:20;background:var(--paper);overflow-y:auto;visibility:hidden;opacity:0;transition:opacity .2s,visibility 0s .2s}
+.sheet.open{visibility:visible;opacity:1;transition:opacity .2s}
+.sheet .in{max-width:900px;margin:0 auto;padding:0 max(5vw,16px) 72px}
+.sheet header{position:sticky;top:0;z-index:2;background:var(--paper);display:flex;align-items:stretch;gap:0;border-bottom:1.5px solid var(--ink);min-height:52px;flex-wrap:wrap}
+.sheet h2{font:900 clamp(1.25rem,3vw,1.7rem)/1.2 var(--disp);margin:0;align-self:center;padding:10px 16px 10px 0}
+.x{margin-inline-start:auto;padding:0 16px;font-weight:700;border-left:1.5px solid var(--ink);min-height:48px}
+.gt{display:flex}
+.gt button{padding:0 14px;font-weight:700;color:var(--sub);border-left:1px solid var(--hair);min-height:48px;white-space:nowrap}
+.gt button[aria-selected=true]{color:#16140e;background:var(--mark)}
+.sheet h3{font:900 1.25rem/1.3 var(--disp);margin:40px 0 12px;display:flex;gap:12px;align-items:baseline;padding-top:10px;border-top:1.5px solid var(--ink)}
+.sheet h3 .k{font:500 .8rem/1 var(--mono);color:var(--shu)}
+.sheet p{max-width:42em}
+.intro{font-size:1.08rem;margin:20px 0 0}
+.fine{font-size:.85rem;color:var(--sub)}
+.rule{display:grid;grid-template-columns:170px minmax(0,1fr);gap:20px;align-items:center;padding:14px 0;border-bottom:1px solid var(--hair)}
+.rule svg{width:100%;height:auto;background:var(--panel);border:1px solid var(--hair)}
+.rule rect,.rule circle{fill:var(--hair)}.rule .b *{fill:var(--ink)}.rule .r{fill:var(--shu)}.rule .l{stroke:var(--shu);stroke-width:2;fill:none}
+.rule h4{margin:0;font:900 1.15rem/1.3 var(--disp)}.rule p{margin:4px 0}.rule small{font-weight:700;font-size:.82rem}
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-top:1.5px solid var(--ink);border-left:1px solid var(--hair)}
+.who div{padding:14px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}.who b{font-size:1.02rem}.who p{margin:4px 0 0;font-size:.9rem}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.plan{list-style:none;padding:0;margin:0;border-top:1.5px solid var(--ink)}
+.plan li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--hair)}
+.plan .t{font:500 1.3rem/1 var(--mono)}.plan b{font-size:1.05rem}.plan em{font-style:normal;font-size:.78rem;font-weight:700;margin-left:10px;padding:2px 6px;border:1px solid var(--ink)}
+.plan p{margin:6px 0 0;font-size:.94rem}.plan q{display:block;margin-top:6px;font-weight:700;quotes:"「" "」"}
+blockquote{margin:12px 0;padding:10px 16px;border-left:4px solid var(--shu);background:var(--panel);max-width:42em}
+.crit{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));border-top:1.5px solid var(--ink)}
+.crit div{padding:14px 14px 14px 0;border-bottom:1px solid var(--hair)}.crit p{margin:4px 0;font-size:.92rem}.crit small{font-weight:700;font-size:.8rem;color:var(--sub)}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-top:1.5px solid var(--ink);border-left:1px solid var(--hair);margin-top:16px}
+.sgrid div{padding:12px 14px;border-right:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.sgrid em{font-style:normal;font-weight:700;font-size:.8rem;color:var(--sub)}.sgrid b{display:block;font:500 1.6rem/1.2 var(--mono);margin:2px 0}.sgrid p{margin:2px 0;font-size:.9rem}
+.sent{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:1.05rem;font-weight:700}
+.sent input{flex:1 1 200px}
+.sheet textarea{width:100%;min-height:84px;margin-top:6px;display:block}
+.fl{display:block;font-weight:700;margin-top:18px}
+.sheet pre{white-space:pre-wrap;background:var(--panel);border:1.5px solid var(--ink);padding:12px 14px;font:.9rem/1.7 var(--ui);user-select:all;margin:0 0 10px}
+#printArea{display:none}
+.pdfhold{position:fixed;left:-10000px;top:0}
+.pdfdoc{width:720px;padding:4px;background:#fff;color:#000;font:14px/1.6 "BIZ UDPGothic",sans-serif}
+.pdfdoc h1{font:900 20px/1.35 "Zen Kaku Gothic New",sans-serif;margin:0 0 14px;padding-bottom:8px;border-bottom:2px solid #000;display:flex;justify-content:space-between;gap:24px}
+.pdfdoc h1 span{font:400 14px "BIZ UDPGothic",sans-serif;white-space:nowrap}
+.pdfdoc section{border-bottom:1px solid #999;padding:10px 0 12px}
+.pdfdoc h2{font:700 15px/1.3 "BIZ UDPGothic",sans-serif;margin:0 0 6px}
+.pdfdoc p{margin:4px 0}
+.pdfdoc table{width:100%;border-collapse:collapse;font-size:13px}
+.pdfdoc th,.pdfdoc td{border:1px solid #000;padding:5px 8px;height:28px;text-align:left}
+.pdfdoc th{background:#eee}
+.pdfdoc .bx{border:1px solid #000;min-height:70px;padding:8px;white-space:pre-wrap}
+.pdfdoc .bx.s{min-height:44px}
+.pdfdoc u{display:inline-block;min-width:110px;border-bottom:1px solid #000;text-decoration:none}
+.photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px;margin-top:16px}
+.photos figure,.mine{margin:0}.photos img{display:block;width:100%;height:auto;border:1.5px solid var(--ink)}
+.photos figcaption{margin-top:6px}.ngm{display:none}.ng img{display:none}.ng .ngm{display:block}
+/* 架空の見本ポスター */
+.fp{position:relative;width:min(100%,420px);aspect-ratio:1/1.414;margin:16px 0 0;background:#14204a;color:#fff7e6;overflow:hidden;font-family:"Zen Kaku Gothic New",sans-serif;container-type:inline-size;box-shadow:6px 8px 0 var(--hair)}
+.fp .fk{position:absolute;left:7cqw;top:24cqw;font-weight:700;font-size:3.6cqw;letter-spacing:.25em;color:#ffd166}
+.fp h4{position:absolute;left:6cqw;top:29cqw;margin:0;font:900 19cqw/1 "Zen Kaku Gothic New",sans-serif;letter-spacing:-.02em}
+.fp .fe{position:absolute;left:7cqw;top:50cqw;font:500 3.3cqw/1 system-ui,sans-serif;letter-spacing:.12em;opacity:.8}
+.fp svg.art{position:absolute;left:0;top:0;width:100%;height:auto}
+.fp svg.fw{position:absolute;right:5cqw;top:55cqw;width:30cqw;height:auto}
+.fp .date{position:absolute;left:7cqw;top:58cqw;line-height:1}
+.fp .date b{font:900 14cqw/1 "Zen Kaku Gothic New",sans-serif;color:#ffd166;letter-spacing:-.03em}
+.fp .date small{font-size:5cqw;font-weight:700;margin:0 1.5cqw 0 .5cqw}
+.fp .date span{display:block;margin-top:2cqw;font-size:5cqw;font-weight:700}
+.fp .what{position:absolute;left:7cqw;right:7cqw;top:83cqw;display:flex;gap:2cqw}
+.fp .what i{flex:1;font-style:normal;text-align:center;background:#e63946;border-radius:2cqw;padding:2.6cqw 0;font-weight:900;font-size:4.4cqw}
+.fp dl{position:absolute;left:7cqw;right:7cqw;top:97cqw;margin:0;display:grid;grid-template-columns:auto 1fr;gap:1.6cqw 3cqw;font-size:3.6cqw}
+.fp dt{color:#ffd166;font-weight:700}.fp dd{margin:0}
+.fp .foot{position:absolute;left:0;right:0;bottom:0;height:20cqw;background:#fff7e6;color:#14204a;display:flex;align-items:center;gap:3cqw;padding:0 7cqw}
+.fp .foot svg{width:13cqw;height:13cqw;flex:none}
+.fp .foot p{margin:0;font-size:3.4cqw;line-height:1.4;font-weight:700}.fp .foot p b{display:block;font-size:4.4cqw}
+.fp .nocar{margin-left:auto;text-align:center;font-size:2.6cqw;font-weight:700}.fp .nocar svg{width:10cqw;height:10cqw;display:block;margin:0 auto 1cqw}
+/* 架空の見本サイト */
+.fs{width:min(100%,400px);margin:16px 0 0;border:9px solid #111;border-radius:34px;background:#111;overflow:hidden;box-shadow:6px 8px 0 var(--hair);font-family:"BIZ UDPGothic",sans-serif;color:#1f2937}
+.fs .u{background:#f3f4f6;padding:8px 12px;text-align:center}.fs .u span{display:block;background:#e5e7eb;border-radius:8px;padding:4px;font:600 11px system-ui,sans-serif;color:#374151}
+.fs .pg{background:#fff;max-height:640px;overflow-y:auto}
+.fs .hdr{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #e5e7eb}
+.fs .hdr b{font-size:15px}.fs .hdr .lg{width:22px;height:22px;border-radius:6px;background:#0f766e;display:grid;place-items:center;color:#fff;font-size:12px}
+.fs .hdr span{margin-left:auto;font-size:12px;color:#475569;white-space:nowrap}.fs .hdr span i{font-style:normal;border:1px solid #94a3b8;border-radius:99px;padding:1px 8px;margin-right:8px}
+.fs .hero{position:relative;background:#0f766e;color:#fff;padding:20px 16px 18px;overflow:hidden}
+.fs .hero svg{position:absolute;right:-6px;bottom:-4px;width:150px;opacity:.95}
+.fs .crumb{font-size:11px;color:#99f6e4}.fs h5{position:relative;margin:6px 0 4px;font:900 22px/1.3 "Zen Kaku Gothic New",sans-serif;max-width:62%}
+.fs .hero p{position:relative;margin:0;font-size:12px;opacity:.9;max-width:62%}
+.fs .tag{display:inline-block;margin-top:10px;background:#fde047;color:#1f2937;font-weight:700;font-size:12px;border-radius:99px;padding:3px 10px;position:relative}
+.fs .sb{padding:16px}
+.fs .alert{display:flex;gap:10px;background:#fef2f2;border-radius:10px;padding:12px;box-shadow:inset 4px 0 0 #dc2626;font-size:13px;line-height:1.55;color:#7f1d1d}
+.fs .alert svg{width:22px;height:22px;flex:none}
+.fs .alert b{display:block;font-size:14px}
+.fs .cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.fs .cards div{border:1px solid #e2e8f0;background:#f8fafc;border-radius:10px;padding:10px;font-size:13px;line-height:1.45}
+.fs .cards em{display:flex;align-items:center;gap:4px;font-style:normal;font-size:11px;font-weight:700;color:#0f766e;margin-bottom:2px}
+.fs .cards em svg{width:15px;height:15px}
+.fs .cta{display:block;text-align:center;background:#0f766e;color:#fff;border-radius:99px;padding:13px;font-weight:700;font-size:15px;box-shadow:0 6px 14px rgba(15,118,110,.3)}
+.fs .cta small{display:block;font-weight:400;font-size:11px;opacity:.85}
+.fs .note{font-size:11px;color:#64748b;text-align:center;margin:8px 0 0}
+.fs .ft{background:#134e4a;color:#99f6e4;font-size:11px;padding:14px 16px;line-height:1.6}
+details.ans{margin-top:14px;border:1.5px solid var(--ink);background:var(--panel);max-width:42em}
+details.ans summary{cursor:pointer;padding:12px 14px;font-weight:700;list-style:none}details.ans summary::-webkit-details-marker{display:none}
+details.ans summary::before{content:"＋ "}details.ans[open] summary::before{content:"－ "}
+details.ans .bd{padding:0 14px 14px}details.ans h4{margin:12px 0 4px;font-size:.95rem}
+details.ans ul{margin:0;padding-left:1.2em}details.ans li{margin:3px 0}
+
+@media(max-width:899px){.flist p{display:none}}
+@media(max-width:420px){.brand span,.timer #tmr{display:none}.scn button{padding:0 8px;font-size:.82rem}.gb{padding:0 11px}}
+@media(max-width:560px){.rule{grid-template-columns:minmax(0,1fr)}.rule svg{max-width:240px}.plan li{grid-template-columns:minmax(0,1fr);gap:4px}}
+@media(min-width:900px){
+.app{grid-template-columns:minmax(0,1fr) var(--dockw);grid-template-rows:auto auto minmax(0,1fr);grid-template-areas:"top top" "steps steps" "stage dock"}
+.steps button{padding:10px 14px 11px;gap:8px}.steps .nm{font-size:.95rem}.steps .ph{display:inline;padding-left:8px;border-left:1px solid var(--hair)}
+.stage{padding:10px 24px 14px;gap:6px}
+.hud{min-height:30px;padding-bottom:3px}
+.hud{max-width:none;width:var(--phw)}.duo .hud{width:min(100%,calc(var(--phw)*2 + 14px))}
+.phone{flex:0 1 var(--phw);max-width:var(--phw)}
+.phone{border-width:10px;border-radius:40px}.scr{border-radius:30px}
+.dock{max-height:none;border-top:0;border-left:1.5px solid var(--ink)}
+.toast{display:none}
+.note{display:block;padding:16px 18px;border-bottom:1.5px solid var(--ink)}
+.note em{font:500 .74rem/1.2 var(--mono);color:var(--shu);font-style:normal;letter-spacing:.04em}
+.note b{display:block;font:900 1.2rem/1.35 var(--disp);margin:5px 0 3px}.note p{margin:0;color:var(--sub);font-size:.92rem}
+.tl{grid-template-columns:1fr}.tl li:nth-child(odd){border-right:0}
+.row{padding:10px 18px;min-height:50px}
+.row .tx{display:flex;justify-content:space-between;align-items:baseline;gap:10px}.row .r{margin:0;white-space:nowrap}
+.why,.pad{padding-inline:18px}
+.side{display:block;margin:14px 18px;padding:12px 14px;border:1.5px solid var(--ink)}
+.side em{font-style:normal;font-weight:700;font-size:.78rem;color:var(--sub)}.side b{display:block;font-size:1.02rem;margin:2px 0}.side p{margin:0;font-size:.9rem}
+.side ul{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.88rem}.side li.y{font-weight:700}.side li.n{color:var(--sub)}
+}
+@media(min-width:900px) and (max-width:1439px){.steps .ph{display:none}}
+@media(min-width:900px) and (max-height:820px){
+.top{min-height:40px}.steps button{padding:6px 14px 7px}
+.stage{padding:6px 20px 10px;gap:4px}.hud{min-height:26px}
+.phone{border-width:8px;border-radius:32px}.scr{border-radius:24px}
+:root{--phw:clamp(320px,calc((100dvh - 128px)*.74),520px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{
+@page{size:A4;margin:12mm}
+html,body{height:auto;overflow:visible;background:#fff;color:#000}
+.app,.sheet{display:none!important}
+#printArea{display:block;font:10.5pt/1.5 var(--ui);color:#000}
+#printArea h1{font:900 15pt/1.3 var(--disp);margin:0 0 4mm;padding-bottom:2mm;border-bottom:1.5pt solid #000;display:flex;justify-content:space-between;gap:8mm}
+#printArea h1 span{font:400 10.5pt var(--ui)}
+#printArea section{border-bottom:.5pt solid #999;padding:2.5mm 0 3mm;break-inside:avoid}
+#printArea h2{font:700 11.5pt/1.3 var(--ui);margin:0 0 1.5mm}
+#printArea p{margin:1mm 0}
+#printArea table{width:100%;border-collapse:collapse;font-size:9.5pt}
+#printArea th,#printArea td{border:.5pt solid #000;padding:1.2mm 2mm;height:7.5mm;text-align:left}
+#printArea th{background:#eee}
+#printArea .bx{border:.5pt solid #000;min-height:20mm;padding:2mm;white-space:pre-wrap}
+#printArea .bx.s{min-height:12mm}
+#printArea u{display:inline-block;min-width:30mm;border-bottom:.5pt solid #000;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="cvd"><feColorMatrix type="matrix" values="0.625 0.375 0 0 0 0.7 0.3 0 0 0 0 0.3 0.7 0 0 0 0 0 1 0"/></filter></svg>
+<div class="app">
+<header class="top">
+<h1 class="brand"><i aria-hidden="true">伝</i><span>伝わるラボ<small>情報デザイン教材</small></span></h1>
+<div class="scn" id="seg" aria-label="題材"></div>
+<div class="tr">
+<div class="timer" id="timer"><button id="tmb" aria-label="タイマーの開始と一時停止" aria-pressed="false"><span class="pl" id="tmi">▶</span><span id="tm">5:00</span></button><button id="tmr" aria-label="タイマーを戻す">↺</button></div>
+<button class="gb" id="openGuide">ガイド</button>
+</div>
+</header>
+<nav class="steps" id="steps" aria-label="学習のステップ"></nav>
+
+<main class="stage" id="stage">
+<div class="hud"><span id="hudL"></span><span id="hudM"></span><button id="reset">やり直す</button></div>
+<div class="phones">
+<div class="phone pb" aria-label="改善前"><div class="scr" id="scrB"><div class="bar" id="barB"></div><div class="scroll" id="scrollB"><div class="inner"><div class="card" id="before"></div></div></div></div><span class="ptag" id="tagB">改善前</span></div>
+<div class="phone"><div class="scr" id="scr">
+<div class="bar" id="barA"></div><div class="scroll" id="scroll"><div class="inner"><div id="pins"></div><div class="card" id="after"></div></div></div>
+<div class="cd"><i id="cdbar"></i><b id="cdn">10</b></div>
+<div class="cover" id="cover"></div>
+<div class="toast" id="toast" aria-live="polite"></div>
+</div><span class="ptag" id="tagA">改善後</span></div>
+</div>
+</main>
+
+<aside class="dock">
+<div class="note" id="note" aria-live="polite"></div>
+<div id="pFree">
+<div class="tabs" role="tablist" id="tabs"></div>
+<ul class="tl" id="tiles"></ul>
+<div class="why" id="why" hidden><label for="whyIn">だれのために、なぜこの3つ？</label><input id="whyIn" maxlength="120" placeholder="例：急いでいる人が、最初のひと目で動けるように"></div>
+<div class="pad" id="nextB"></div>
+<div class="side" id="sidePer"></div>
+</div>
+<div id="pView" class="pad" hidden></div>
+<div id="pThree" class="pad" hidden></div>
+<div id="pHunt" class="pad" hidden></div>
+<div id="pTest" class="pad" hidden></div>
+</aside>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="gh"><div class="in">
+<header><h2 id="gh">ガイド</h2><div class="gt" role="tablist"><button role="tab" data-g="s" aria-selected="true">ルールと視点</button><button role="tab" data-g="t" aria-selected="false">先生用</button></div><button class="x" id="closeGuide">閉じる</button></header>
+<section id="gS">
+<p class="intro">情報デザインは、見た目をきれいにすることだけではありません。受け取った人が<strong>迷わず、正しく、すばやく行動できる</strong>ように情報を整えることです。命にかかわる緊急のお知らせでは、とくに大切です。</p>
+<h3><span class="k">01</span>伝わるための4つのポイント</h3>
+<div id="rules"></div>
+<h3><span class="k">02</span>だれにでも伝わるように</h3>
+<p><strong>ユニバーサルデザイン</strong>は、年れい・国・体の特ちょうなどにかかわらず、できるだけ多くの人が使えるようにする考え方です。色だけに頼らず形でも伝える、文字を大きくする、などがその例です。</p>
+<p><strong>やさしい日本語</strong>は、むずかしい言葉を言いかえ、短い文で書く方法です。阪神・淡路大震災で、日本語や英語が十分にわからず必要な情報を受け取れなかった外国人がいたことをきっかけに考えられました。「避難する」→「にげる」、「危険」→「あぶない」のように言いかえます。</p>
+<h3><span class="k">03</span>だれのためにデザインする？</h3>
+<p>使う人の立場を想像するのが出発点です（ユーザの視点）。ステップ⑤「4人の視点」で、それぞれの見え方を試せます。</p>
+<div class="who" id="who"></div>
+<p class="fine" style="margin-top:28px">メール・ポスター・サイトの町名・お店・学校の名前と内容は架空のサンプルです。</p>
+</section>
+<section id="gT" hidden>
+<div class="ctl"><button class="big" id="presentB" aria-pressed="false">提示モードにする</button><button class="big alt" id="printBlank">白紙のワークシートを印刷</button><button class="big alt" id="wipe">この端末の記録を全部消す</button></div>
+<p class="fine">提示モードにすると、プロジェクターや大型モニターに映したときに文字とスマホ画面が大きくなります。上の帯のタイマーは、ステップを切りかえると、そのステップの目安時間に戻ります。共用の端末では、授業の終わりに「記録を全部消す」を押すと、次のクラスが最初から使えます。</p>
+<h3><span class="k">01</span>授業の流れ（1コマ50分）</h3>
+<ol class="plan">
+<li><span class="t">5分</span><div><b>① 10秒テスト</b><em>問題に気づく</em><p>全員が「改善前」のお知らせを10秒だけ見て、2問に答えます。答えられなかった体験を共有します。メールでは「本物の例を見る」で、実際にスマホに届いた緊急地震速報の写真も見せられます（CC BY 4.0）。</p><q>10秒で何が読み取れなかった？ それはなぜ？</q></div></li>
+<li><span class="t">8分</span><div><b>② 問題さがし</b><em>課題の設定</em><p>個人で悪いところをタップしてから（全部で9つ）、班で共有します。見つけた問題を「目立たせる・まとめる・そろえる・くり返す」の4つのポイントに分けます。</p><q>この問題は、どのポイントが足りない？</q></div></li>
+<li><span class="t">8分</span><div><b>③ 全部直す</b><em>解決策の制作</em><p>改善前と改善後が2つ並びます。工夫を1つずつクリックしてつけていき、そのたびにどこが変わるかを確かめます。13個全部つけて、「ここまで変わる」を実感させます。</p><q>どの工夫がいちばん効いている？</q></div></li>
+<li><span class="t">5分</span><div><b>④ もう一度テスト</b><em>評価</em><p>全部直したお知らせで10秒テストをします。①より正解が増えたことを確かめ、情報デザインで伝わり方が変わることに納得させます。</p><q>①のときと、何がちがった？</q></div></li>
+<li><span class="t">7分</span><div><b>⑤ 4人の視点</b><em>利用者の立場に立つ</em><p>お年寄り・色の見え方が違う人・外国から来た人・急いでいる人の4人から1人を選ぶと、改善前のお知らせがその人の見え方で表示されます。となりには、その人に必要な工夫だけをつけたお知らせが並びます。4人全員を見て、困りごとがちがうことに気づかせます。</p><q>同じお知らせでも、人によって困る所がちがうのはなぜ？</q></div></li>
+<li><span class="t">10分</span><div><b>⑥ 3つだけ</b><em>改善・だれのために</em><p>題材ごとの「ミッション」（届ける場面の状況）を読み、①だれを一番に考えるかを自分で決め、②工夫を3つ選び、③理由を書いて決定します。決定するまで、だれに伝わるかは表示されません。決定後にミッションに出てくる人たちへの伝わり方（◎○－）が出るので、班で「だれを優先したか・なぜか」を発表し、選び方の違いを比べます。⑤で4人の特性を学んだうえで、限られた条件の中で優先順位を考えるのがねらいです。</p><q>3つでは全員に届けられない。そのとき、どう考えればいい？</q></div></li>
+<li><span class="t">7分</span><div><b>⑦ ふりかえり</b><em>技術の俯瞰</em><p>学んだことを一文にまとめます。情報をスマホやWebでたくさんの人に一度に届ける技術の、よい点と心配な点も考えます。コピーして提出するか、印刷します。</p><q>まちがった情報が一斉に届いたら、どうなる？</q></div></li>
+</ol>
+<h3><span class="k">02</span>2コマで行う場合</h3>
+<p>1コマ目は①〜④。全部直したお知らせで正解が増えるところまで進め、効果を実感させます。2コマ目は⑤「4人の視点」と⑥「3つだけ」の話し合い・発表に時間をかけ、⑦のあと、学校や地域の実際のお知らせ（配布プリント、掲示物、学校のWebページなど）を選び、同じルールで直す案を考えます。題材を「ポスター」「サイト」に変えて、同じ工夫が使えるか確かめるのも効果的です。</p>
+<h3><span class="k">03</span>次期学習指導要領との対応</h3>
+<p>中央教育審議会 教育課程部会 情報・技術ワーキンググループの「取りまとめ（案）」（2026年8月）では、中学校の新しい教科「情報・技術科」の「情報技術」領域に「(1)情報の表現とデジタル化」が置かれ、内容項目の例に「ユーザ視点の情報デザイン」が挙げられています。このアプリは、その中の次の内容のまとまりにあたります。</p>
+<blockquote>相手の立場に立って、見やすく分かりやすく情報を伝えられる方法を知り、発信する「❹情報を分かりやすく表す・伝える」</blockquote>
+<p>目指す姿（思考力、判断力、表現力等の総合的な発揮）は、次のように示されています。</p>
+<blockquote>情報技術の正負の側面に配慮しつつ、情報やデータの分析結果を判断し表現したり、利用者にとって分かりやすい情報を批判的に吟味・設計・表現し、評価・改善したりできる。</blockquote>
+<p>取りまとめ（案）は、学習過程として「仕組みの理解→課題の設定→解決策の構想→解決策の制作等→評価・改善→技術の俯瞰」を示しています。このアプリでは、①②で課題を設定し、③④で全部の工夫を使った解決策を作って評価します。⑤で利用者の立場に立って見え方を確かめ、⑥では利用者を絞って工夫を選び直し、「だれのための解決策か」を構想し直す評価・改善を行います。「仕組みの理解」は、このガイドの「ルールと視点」で扱います。</p>
+<p class="fine">中学校での先行実施は2029年度から段階的に、全面実施は2031年度の見通しです（審議中の案）。教科名・内容・時期は、告示される学習指導要領で必ず確認してください。</p>
+<h3><span class="k">04</span>評価規準の例</h3>
+<p class="fine">現行の3観点で例示しています。</p>
+<div class="crit">
+<div><b>知識・技能</b><p>対比・近接・整列・反復やユニバーサルデザインなど、利用者の立場で情報を分かりやすく表す方法を理解している。</p><small>見取り：② 問題をルールに分けられるか</small></div>
+<div><b>思考・判断・表現</b><p>だれに・何を伝えるかをふまえて工夫を選び、理由を説明している。テストの結果をもとに改善を考えている。</p><small>見取り：④ の結果、⑤ の気づき、⑥ の理由、⑦ の一文</small></div>
+<div><b>主体的に学習に取り組む態度</b><p>試行錯誤しながら改善し、自分が情報を発信する場面に生かそうとしている。</p><small>見取り：⑦「これから気をつけたいこと」</small></div>
+</div>
+</section>
+</div></div>
+
+<div class="sheet" id="sum" role="dialog" aria-modal="true" aria-labelledby="sh"><div class="in">
+<header><h2 id="sh">⑦ ふりかえり</h2><button class="x" id="closeSum">閉じる</button></header>
+<div id="sumBody"></div>
+</div></div>
+<div class="sheet" id="realSheet" role="dialog" aria-modal="true" aria-labelledby="rh"><div class="in">
+<header><h2 id="rh">本物の例</h2><button class="x" id="closeReal">閉じる</button></header>
+<div id="realBody"></div>
+</div></div>
+<div id="printArea"></div>
+<script>
+{
+const IC_WARN='<svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 L38 36 H2 Z" fill="#ffd400" stroke="#1a1a1a" stroke-width="2.5" stroke-linejoin="round"/><rect x="18" y="13" width="4" height="13" rx="2" fill="#1a1a1a"/><circle cx="20" cy="31" r="2.4" fill="#1a1a1a"/></svg>';
+const IC_TAG='<svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><path d="M3 21 L19 4 H36 V21 L20 37 Z" fill="#f59e0b" stroke="#1a1a1a" stroke-width="2.5" stroke-linejoin="round"/><circle cx="29" cy="11" r="3" fill="#fff" stroke="#1a1a1a" stroke-width="2"/><text x="19" y="27" font-size="13" font-weight="700" text-anchor="middle" fill="#1a1a1a" font-family="sans-serif">%</text></svg>';
+const IC_CAL='<svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><rect x="4" y="7" width="32" height="29" rx="3" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/><path d="M4 10a3 3 0 0 1 3-3h26a3 3 0 0 1 3 3v6H4z" fill="#2563eb" stroke="#1a1a1a" stroke-width="2.5"/><path d="M12 3v8M28 3v8" stroke="#1a1a1a" stroke-width="2.5" stroke-linecap="round"/><text x="20" y="31" font-size="13" font-weight="700" text-anchor="middle" fill="#1a1a1a" font-family="sans-serif">12</text></svg>';
+const QR=(()=>{let m='',sd=7;const f=(x,y)=>`<rect x="${x}" y="${y}" width="7" height="7" fill="#1a1a1a"/><rect x="${x+1}" y="${y+1}" width="5" height="5" fill="#fff"/><rect x="${x+2}" y="${y+2}" width="3" height="3" fill="#1a1a1a"/>`;
+  for(let y=0;y<21;y++)for(let x=0;x<21;x++){if((x<8&&y<8)||(x>12&&y<8)||(x<8&&y>12))continue;sd=(sd*73+11)%101;if(sd%2)m+=`<rect x="${x}" y="${y}" width="1" height="1" fill="#1a1a1a"/>`;}
+  return `<svg class="qr" viewBox="-1 -1 23 23" aria-hidden="true"><rect x="-1" y="-1" width="23" height="23" fill="#fff"/>${f(0,0)}${f(14,0)}${f(0,14)}${m}</svg>`;})();
+const T='font-family="sans-serif" font-weight="700"';
+const S={
+mail:{kind:'mail',n:'メール',icon:IC_WARN,hint:'何をすればいいか・どこへ行けばいいか',bar:'<span class="bk">‹ 受信</span><b>緊急速報メール</b>',title:'大雨特別警報',en:'Heavy Rain Emergency Warning',badge:'警戒レベル5相当',act:'直ちに命を守る行動をとってください。',actEn:'Act now to protect your life.',
+actEz:'すぐに 高い ところへ にげて、いのちを まもって ください。',
+para:'本日午前3時40分、気象台はひばり台町に大雨特別警報を発表しました。これまでに経験したことのないような大雨となっており、ひばり川の水位が上がっています。土砂災害や浸水の危険が非常に高まっています。町内全域が対象です。避難所はひばり台小学校体育館です。すでに外が危険な場合は、建物の2階以上など少しでも高い場所へ移動してください。',
+paraEz:'ひばり台町に とても たくさん 雨が ふって います。川の 水が ふえて います。山が くずれたり、家に 水が 入ったり して、とても あぶないです。にげる ところは ひばり台小学校の 体育館です。外が あぶない ときは、家の 2かい より 上へ いって ください。',
+list:[['すること','高い場所へ。外が危険なら建物の2階以上へ','Go higher. If it is unsafe outside, go upstairs.'],['避難所','ひばり台小学校 体育館','Shelter: Hibaridai Elementary School gym'],['対象','町内全域','The whole town'],['状況','ひばり川があふれる危険','The river may flood']],
+listEz:[['すること','高い ところへ にげる。外が あぶない ときは 2かい より 上へ'],['にげる ところ','ひばり台小学校 体育館'],['だれ','町の 全員'],['いま','川の 水が あふれそう']],
+btn:'避難所の場所を見る',btnEz:'にげる ところの 地図を 見る',btnEn:'See shelter map',time:'ひばり台町 防災課　4:05 発表',
+fig:`<svg viewBox="0 0 300 160" role="img" aria-label="地図：川沿いが浸水の危険、北に避難所"><rect width="300" height="160" fill="#e8f1df"/><path d="M0 118 C60 96 110 140 170 118 S260 92 300 110 V160 H0Z" fill="#7fb2f0" opacity=".45"/><path d="M0 128 C60 106 110 150 170 128 S260 102 300 120" fill="none" stroke="#2f73d6" stroke-width="9" stroke-linecap="round"/><g fill="#fff" stroke="#c9cdbf"><rect x="40" y="70" width="22" height="16"/><rect x="72" y="62" width="18" height="14"/><rect x="128" y="74" width="24" height="16"/><rect x="214" y="66" width="20" height="16"/></g><path d="M100 104 L150 46" stroke="#c8102e" stroke-width="3" stroke-dasharray="6 5" fill="none"/><circle cx="100" cy="106" r="7" fill="#0b57d0" stroke="#fff" stroke-width="2.5"/><rect x="138" y="18" width="62" height="26" rx="5" fill="#1f7a4d"/><text x="169" y="36" fill="#fff" font-size="13" text-anchor="middle" ${T}>避難所</text><text x="206" y="35" fill="#1f7a4d" font-size="10" ${T}>Shelter</text><text x="114" y="104" fill="#0b3d91" font-size="11" ${T}>現在地</text><text x="222" y="152" fill="#1d4f9a" font-size="11" ${T}>浸水のおそれ</text></svg>`},
+poster:{kind:'poster',n:'ポスター',icon:IC_TAG,hint:'いつ・何がお得か',bar:'',kick:'ひばり台ベーカリー',title:'10周年感謝祭',en:'Hibaridai Bakery 10th Anniversary Sale',badge:'11/3（日）・4（月）',
+act:'<span class="hl">全品20%オフ！</span>先着50名さまに、焼きたてクロワッサンをプレゼント',actEn:'20% OFF everything + a free croissant for the first 50.',
+actEz:'<span class="hl">ぜんぶ20%やすい！</span>さいしょに きた 50人に クロワッサンを あげます',
+para:'日ごろのご愛顧に感謝いたしまして、当店は開店10周年を記念し、感謝祭を開催する運びとなりました。期間中は店内全品を通常価格より20%割引にてご提供いたします。また、各日先着50名様に焼きたてクロワッサンを進呈いたします。営業時間は午前8時から午後6時まで、駐車場は店舗裏に5台分ございます。なお、商品がなくなり次第終了とさせていただきますので、あらかじめご了承ください。',
+paraEz:'お店が できて 10年に なりました。ありがとうございます。11月3日と 4日は、ぜんぶの パンが 20%（2わり） やすく なります。さいしょに きた 50人に、やきたての クロワッサンを あげます。お店は あさ 8時から ゆうがた 6時までです。くるまは お店の うらに 5だい とめられます。パンが なくなったら おわりです。',
+list:[['内容','全品20%オフ・先着50名にクロワッサン','20% off everything. Free croissant for the first 50.'],['日時','11月3日（日）・4日（月） 8:00〜18:00','Nov 3–4, 8:00–18:00'],['場所','ひばり台駅 東口から徒歩3分','3 min walk from Hibaridai Sta. East Exit'],['駐車場','店舗裏に5台','5 parking spaces behind the shop']],
+listEz:[['なに','ぜんぶ 20% やすい・50人に クロワッサン'],['いつ','11月3日・4日 あさ8時〜ゆうがた6時'],['どこ','ひばり台えき 東口から あるいて 3分'],['くるま','お店の うらに 5だい']],
+btn:'くわしくはWebサイトへ',btnEz:'くわしくは ウェブサイトへ',btnEn:'More info on our website',time:'ひばり台ベーカリー　TEL 00-0000-0000',
+fig:`<svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="焼きたてのパンのイラスト"><rect width="300" height="200" fill="#f6e3c3"/><circle cx="150" cy="215" r="150" fill="#efcf98"/><circle cx="150" cy="215" r="104" fill="#e9c184"/><g transform="rotate(-28 128 96)"><rect x="58" y="80" width="140" height="32" rx="16" fill="#d99c55"/><path d="M82 86l11 19M108 86l11 19M134 86l11 19M160 86l11 19" stroke="#a86a2c" stroke-width="4" stroke-linecap="round"/></g><ellipse cx="190" cy="128" rx="48" ry="32" fill="#c07c42"/><path d="M162 118q28-14 56 0M166 133q24-10 48 0" stroke="#93582a" stroke-width="4" fill="none" stroke-linecap="round"/><g fill="#eab062" stroke="#b5732d" stroke-width="2.5"><ellipse cx="96" cy="150" rx="17" ry="11" transform="rotate(-28 96 150)"/><ellipse cx="144" cy="150" rx="17" ry="11" transform="rotate(28 144 150)"/><ellipse cx="108" cy="141" rx="14" ry="15"/><ellipse cx="132" cy="141" rx="14" ry="15"/><ellipse cx="120" cy="137" rx="14" ry="17"/></g><path d="M74 46l3 8 8 3-8 3-3 8-3-8-8-3 8-3zM228 40l2 6 6 2-6 2-2 6-2-6-6-2 6-2zM238 84l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z" fill="#fff"/></svg>`,
+hard:['ご愛顧','運び','記念','開催','通常価格','割引','提供','先着','進呈','営業時間','店舗','なくなり次第','あらかじめ','了承'],
+to:{red:{n:'目立つ色',d:'見出しを1つの色の帯にすると、遠くからでも目に入ります。色を使うのはここぞという所だけに。'},
+  icon:{n:'マーク（アイコン）',d:'何のお知らせかをひと目で伝えるマークをそえます。文字が読めない人や、色の見え方が違う人にも届きます。'},
+  btn:{n:'QRコードをつける',d:'ポスターはクリックできません。QRコードを大きくのせると、スマホですぐにくわしい情報が見られます。'},
+  fig:{n:'絵や写真で見せる',d:'ポスターは、まず絵や写真で足を止めてもらいます。何のお店か・何がお得かが、ひと目で伝わります。'},
+  first:{d:'ポスターは2〜3秒しか見てもらえません。いちばんお得なこと・伝えたいことを一番上に、大きく書きます。'},
+  list:{d:'長い文章を「内容・日時・場所・駐車場」に分け、同じ形でくり返すと一目でわかります。大事な順に並べるのもポイント。'}},
+po:{title:{n:'何のお知らせか目立たない',d:'お店の名前と「感謝祭」が本文と同じ大きさ。通りすがりの人は気づかない。',fix:'目立つ色・マーク・文字を大きく'},
+  lv:{n:'日付が端っこに小さい',d:'「いつなのか」が大事なのに、目に入らない。',fix:'目立つ色・文字を大きく'},
+  act:{n:'いちばんお得な情報が最後にある',d:'「全品20%オフ」が下のほう。ポスターは2〜3秒しか見てもらえない。'},
+  btn:{n:'くわしい情報への入口が小さい',d:'小さな文字のリンクでは、スマホで調べにくい。',fix:'QRコードをつける',h:'くわしく知りたいとき、どうすればいい？'},
+  fig:{n:'目を引く絵や写真がない',d:'パンの絵や写真がないと、何のお店かひと目でわからず、足を止めてもらえない。',fix:'絵や写真で見せる'},
+  word:{d:'「ご愛顧」「進呈」「運び」など、子どもや外国から来た人にはわからない言葉がある。'},
+  mark:{n:'ひと目でわかるマークがない',d:'何のお知らせか、何がお得かを伝えるマークがない。',fix:'マーク（アイコン）・目立つ色'}}},
+site:{kind:'site',n:'サイト',icon:IC_CAL,hint:'いつ・どうすれば参加できるか',bar:'<span>hibaridai-jh.example/open-school</span>',nav:'<b>ひばり台中学校</b><span class="lang">English</span><span class="menu">メニュー ☰</span>',kick:'ホーム ＞ 入学案内 ＞ オープンスクール',title:'オープンスクールのご案内',en:'Hibaridai Junior High School: Open School',badge:'申込締切 10/5',
+act:'<span class="hl">参加には申し込みが必要です。</span>10月5日（土）までに、下のフォームから申し込んでください。',actEn:'Registration required. Apply by Oct 5 using the form below.',
+actEz:'<span class="hl">さんかするには もうしこみが ひつようです。</span>10月5日までに、下の ボタンから もうしこんで ください。',
+para:'本校では、来年度入学を検討されている小学6年生と保護者の皆様を対象に、オープンスクールを実施いたします。開催日は10月12日（土）で、受付は午前9時より体育館前にて行います。9時30分から授業見学、10時30分から部活動体験を予定しており、11時30分に終了予定です。参加をご希望の方は、10月5日（土）までに本ページ下部の申込フォームよりお申し込みください。当日は上履きと筆記用具をご持参ください。なお、駐車場はございませんので、公共交通機関をご利用ください。',
+paraEz:'ひばり台中学校を 見学できる 日が あります。小学6年生と その 家族が さんか できます。10月12日（土）、あさ 9時から 体育館の 前で うけつけを します。9時30分から じゅぎょうを 見て、10時30分から ぶかつを たいけん します。11時30分に おわります。さんか したい 人は、10月5日までに もうしこんで ください。うわばきと えんぴつを もって きて ください。くるまは とめられません。',
+list:[['申し込み','10月5日（土）まで・下のフォームから','Apply by Oct 5 using the form below'],['日時','10月12日（土） 9:00 受付（体育館前）','Oct 12 (Sat), check-in 9:00 at the gym'],['内容','9:30 授業見学 → 10:30 部活動体験','9:30 class visit, 10:30 club trial'],['持ち物','上履き・筆記用具（車での来校はできません）','Indoor shoes and a pencil. No parking.']],
+listEz:[['もうしこみ','10月5日まで・下の ボタンから'],['いつ','10月12日（土） あさ9時'],['なにを する','じゅぎょうを 見る → ぶかつを する'],['もちもの','うわばき・えんぴつ（くるまは ×）']],
+btn:'申し込みフォームへ',btnEz:'もうしこむ',btnEn:'Apply here',time:'ひばり台中学校　最終更新 2026年9月1日',
+fig:`<svg viewBox="0 0 300 130" role="img" aria-label="当日の流れ：9時受付、9時30分授業見学、10時30分部活動体験、11時30分終了"><rect width="300" height="130" fill="#eef4ff"/><text x="14" y="22" font-size="11" fill="#1e3a8a" ${T}>当日の流れ（10月12日）</text><path d="M40 70 H260" stroke="#93c5fd" stroke-width="4"/><g font-size="10" text-anchor="middle" ${T}><circle cx="40" cy="70" r="9" fill="#1d4ed8"/><text x="40" y="52" fill="#1e3a8a">9:00</text><text x="40" y="96" fill="#111">受付</text><text x="40" y="110" fill="#555" font-weight="400">体育館前</text><circle cx="113" cy="70" r="9" fill="#1d4ed8"/><text x="113" y="52" fill="#1e3a8a">9:30</text><text x="113" y="96" fill="#111">授業見学</text><circle cx="187" cy="70" r="9" fill="#1d4ed8"/><text x="187" y="52" fill="#1e3a8a">10:30</text><text x="187" y="96" fill="#111">部活動体験</text><circle cx="260" cy="70" r="9" fill="#1d4ed8"/><text x="260" y="52" fill="#1e3a8a">11:30</text><text x="260" y="96" fill="#111">終了</text></g></svg>`,
+hard:['本校','検討','保護者','対象','実施','受付','希望','本ページ下部','申込フォーム','持参','筆記用具','上履き','公共交通機関','予定'],
+to:{red:{n:'目立つ色',d:'見出しを1つの色の帯にすると、何のページかがすぐわかります。色を使うのはここぞという所だけに。'},
+  icon:{n:'マーク（アイコン）',d:'何の案内かをひと目で伝えるマークをそえます。文字が読めない人や、色の見え方が違う人にも届きます。'},
+  btn:{d:'申し込みボタンは指で押しやすい大きさ（44px以上）に。小さなリンクは見落とされます。'},
+  fig:{d:'当日の流れは、文章より図（タイムライン）のほうが一目でわかります。'},
+  first:{d:'Webページは最後まで読まれないことが多いです。「申し込みが必要」など、いちばん大事なことを一番上に書きます。'},
+  list:{d:'長い文章を「申し込み・日時・内容・持ち物」に分け、同じ形でくり返すと一目でわかります。大事な順に並べるのもポイント。'}},
+po:{title:{n:'何のページか目立たない',d:'見出しが本文と同じ大きさ。探していたページかどうか分からない。',fix:'目立つ色・マーク・文字を大きく'},
+  lv:{n:'しめ切りが端っこに小さい',d:'「いつまでに申し込むか」が目に入らない。',fix:'目立つ色・文字を大きく'},
+  act:{n:'申し込みが必要なことが最後にある',d:'いちばん大事な「申し込みが必要」が下のほう。読みとばすと参加できない。'},
+  btn:{n:'申し込みボタンが小さい',d:'フォームへのリンクが小さく、押しにくい・見落としやすい。'},
+  fig:{n:'当日の流れがわかる図がない',d:'何時に何をするかが、文章だけでは分かりにくい。'},
+  word:{d:'「検討」「保護者」「持参」「公共交通機関」など、むずかしい言葉がある。'},
+  mark:{n:'ひと目でわかるマークがない',d:'何の案内かを伝えるマークがない。',fix:'マーク（アイコン）・目立つ色'}}}};
+S.mail.q=[{q:'何をすればいい？',a:['すぐに高い所へ移動して、命を守る','雨がやむまで家で様子を見る','川の水位を見に行く']},{q:'避難所はどこ？',a:['ひばり台小学校 体育館','町民センター','ひばり台公園']}];
+S.poster.q=[{q:'何がお得？',a:['全品20%オフ・先着50名にクロワッサン','全品半額','パンを1個買うと1個無料']},{q:'いつ？',a:['11月3日（日）・4日（月）','11月10日（日）・11日（月）','毎週日曜日']}];
+S.site.q=[{q:'参加するには何が必要？',a:['10月5日までに申し込む','当日、直接行けばよい','電話で予約する']},{q:'いつ開かれる？',a:['10月12日（土）','10月5日（土）','10月19日（土）']}];
+S.mail.mission={t:'町の全員に届ける大雨のメール',c:'ひばり台町（人口8,000人）は、3人に1人が65さい以上のお年寄りです。近くの工場では、外国から来た人が300人働いています。メールは夜中の3時に、町の全員のスマホに一斉に届きます。',
+  aud:[{k:'old',n:'お年寄り（町の3人に1人）',need:['size','contrast','btn']},{k:'worker',n:'工場で働く外国から来た人',need:['easy','en','icon']},{k:'night',n:'夜中に起こされた人（ねぼけている）',need:['first','red','list']}]};
+S.poster.mission={t:'駅前の掲示板にはるポスター',c:'ポスターは駅前の掲示板にはります。朝と夕方は、通勤・通学で急いでいる人がたくさん通ります。昼間は、近所のお年寄りや、近くの日本語学校の留学生も通ります。見てもらえるのは2〜3秒です。',
+  aud:[{k:'rush',n:'通勤・通学で急いでいる人',need:['first','size','red']},{k:'old',n:'近所のお年寄り',need:['size','contrast','ud']},{k:'student',n:'日本語学校の留学生',need:['easy','en','fig']}]};
+S.site.mission={t:'小学6年生と保護者が見るページ',c:'このページを見るのは、来年入学する小学6年生と、その保護者です。保護者の中には、日本語が苦手な人や、色の見え方がちがう人もいます。多くの人がスマホで見ます。申し込みをわすれると参加できません。',
+  aud:[{k:'kid',n:'小学6年生',need:['easy','fig','list']},{k:'parent',n:'保護者（申し込みをする人）',need:['first','btn','list']},{k:'nonja',n:'日本語が苦手な保護者',need:['en','easy','icon']},{k:'cvd',n:'色の見え方がちがう保護者',need:['icon','contrast']}]};
+const TABS=[
+{t:'文字',items:[
+{k:'size',n:'文字を大きく',r:'対比',d:'スマホの本文は16px以上が目安。小さい文字は、お年寄りや暗い場所では読めません。',hl:'.para,.list,.hd'},
+{k:'lead',n:'行間を広げる',r:'読みやすさ',d:'行と行がつまっていると、どこを読んでいるか見失います。文字の大きさの1.5〜1.8倍がめやす。',hl:'.para,.list'},
+{k:'contrast',n:'色をはっきり',r:'対比',d:'うすい灰色の文字は読めません。背景と文字の明るさの差（コントラスト）を大きくします。',hl:''},
+{k:'ud',n:'UDフォント',r:'ユニバーサル',d:'UD（ユニバーサルデザイン）フォントは、形が見分けやすく読みまちがえにくい書体です。このアプリの文字もUDフォントです。',hl:''}]},
+{t:'整理',items:[
+{k:'first',n:'大事なことを先に',r:'対比',d:'急いでいる人は最初の1行しか読みません。「何をすればいいか」を一番上に、大きく書きます。',hl:'.act'},
+{k:'list',n:'箇条書き',r:'近接・整列・反復',d:'長い文章を「すること・避難所・対象・状況」に分け、同じ形でくり返すと一目でわかります。大事な順に並べるのもポイント。',hl:'.list'},
+{k:'space',n:'ゆとりを作る',r:'近接',d:'余白でかたまりを作ると、どれとどれが関係するかが見えてきます。つめこみすぎは逆効果。',hl:'.list li'},
+{k:'fig',n:'図で見せる',r:'図解',d:'「どこへ逃げるか」「どれくらい危ないか」は、言葉より図のほうがすぐ伝わります。',hl:'.fig'}]},
+{t:'だれにでも',items:[
+{k:'red',n:'緊急色',r:'対比',d:'見出しを赤い帯にすると「ただごとではない」と一目でわかります。色はここぞという所だけに。',hl:'.hd'},
+{k:'icon',n:'警告マーク',r:'ユニバーサル',d:'色だけに頼らず形でも伝えます。色の見え方が違う人や、文字が読めない人にも届きます。',hl:'.ic'},
+{k:'btn',n:'大きなボタン',r:'ユニバーサル',d:'指で押しやすい大きさ（44px以上）に。小さなリンクは押しまちがえたり、見落としたりします。',hl:'.btn'},
+{k:'easy',n:'やさしい日本語',r:'ユニバーサル',d:'むずかしい言葉を言いかえ、短い文で書きます。「避難」→「にげる」、「危険」→「あぶない」。外国から来た人や子どもにも伝わります。',hl:'.para,.act,.list'},
+{k:'en',n:'英語をそえる',r:'ユニバーサル',d:'外国から来た人にも伝わるように英語をそえます。',hl:'.en'}]}];
+const P=[
+{k:'old',n:'お年寄り',need:['size','contrast','btn'],f:'blur(1.3px) contrast(.85)',fn:'ぼかしフィルター',fd:'細かい文字がにじみ、うすい色が見えにくい状態を再現しています。',who:'78さいのおばあさん。年をとって目のピントが合いにくくなり（老眼）、細かい文字やうすい色がぼやけて見えます。めがねは家に置いてきました。',q:'ぼやけて読めないのはどこ？ 何が大きくなれば読める？',say:'細かい文字や、うすい色がぼやけて読みにくい。'},
+{k:'cvd',n:'色の見え方が違う人',need:['icon','contrast'],f:'url(#cvd)',fn:'色のフィルター',fd:'赤と緑の区別がつきにくい見え方を再現しています。',who:'中学2年生。色の見え方が多くの人とちがい、赤と緑が同じような色に見えます（日本では男性の約20人に1人といわれます）。',q:'色だけで伝えようとしている所はない？ 色以外の手がかりはある？',say:'赤と緑の区別がつきにくい。色だけの情報は伝わらない。'},
+{k:'foreign',n:'外国から来た人',need:['easy','en','fig'],f:'',fn:'文字のフィルター',fd:'日本語がほとんど読めない状態を再現しています（日本語をうすく表示。やさしい日本語だけは少し読めます）。',who:'ブラジルから日本に来て3か月の人。ひらがなは少し読めますが、漢字やむずかしい言葉はほとんど読めません。',q:'日本語が読めなくても、何のお知らせか・何をすればいいかわかる？',say:'むずかしい日本語は読めない。やさしい日本語・英語・図がたより。'},
+{k:'hurry',n:'急いでいる人',need:['first','list','red'],f:'',fn:'ひと目フィルター',fd:'最初に目に入る上のほうしか読めない状態を再現しています（下のほうはうすくなります）。',who:'外出中に通知やポスターに気づいた人。歩きながら、ほんの数秒しか見られません。',q:'上のほうだけ見て、いちばん大事なことがわかる？',say:'じっくり読むひまがない。ひと目で大事なことを知りたい。'}];
+const TOOLS=TABS.flatMap(t=>t.items),N={};TOOLS.forEach(i=>N[i.k]=i);
+const PROB={
+title:{n:'見出しが目立たない',d:'本文と同じ大きさ・色。緊急のお知らせだと気づけない。',r:'対比',fix:'緊急色・警告マーク・文字を大きく',h:'一番上の行をよく見てみよう。'},
+lv:{n:'危険度が端っこに小さい',d:'レベルや予想など、一番危ない情報が目に入らない。',r:'対比',fix:'緊急色・文字を大きく',h:'右上の小さな文字は？'},
+para:{n:'長い文章のかたまり',d:'「だれが」「何を」「どこへ」が文章にうもれて、探さないとわからない。',r:'近接・整列・反復',fix:'箇条書き・行間を広げる・ゆとりを作る',h:'文章の長さはどう？'},
+act:{n:'大事な指示が最後にある',d:'「何をすればいいか」が下のほう。急いでいる人はそこまで読まない。',r:'対比',fix:'大事なことを先に',h:'下のほうに大事なことが書いてない？'},
+btn:{n:'リンクが小さく押しにくい',d:'指で押しにくく、見落としやすい。',r:'ユニバーサル',fix:'大きなボタン',h:'押せる所はどこ？'},
+fig:{n:'図や地図がない',d:'「どこへ」「どれくらい危ないか」が言葉だけでは伝わりにくい。',r:'図解',fix:'図で見せる',h:'何かが足りない…。下の空いている所をタップしてみよう。'},
+small:{n:'文字が小さく、色がうすい',d:'画面全体の文字が小さく、背景との明るさの差（コントラスト）も少ない。一番下の文字はとくに読みにくい。',r:'対比・ユニバーサル',fix:'文字を大きく・色をはっきり・UDフォント',h:'一番下の小さな文字、読める？'},
+word:{n:'むずかしい言葉が多い',d:'「直ちに」「浸水」「発表」など、子どもや外国から来た人にはわからない言葉がある。',r:'ユニバーサル',fix:'やさしい日本語・英語をそえる',h:'意味がわからない言葉はない？ 文章の中の言葉を1つタップしてみよう。'},
+mark:{n:'色以外の手がかり（マーク）がない',d:'危ないことを知らせるマークがない。文字が読めない人や、色の見え方が違う人には伝わりにくい。',r:'ユニバーサル',fix:'警告マーク・緊急色',h:'見出しの左はしに、ひと目で「危ない」とわかる何かがあるといいかも。左はしの空いた所をタップ。'}};
+const PK=Object.keys(PROB);
+const RP={対比:'目立たせる',近接:'まとめる',整列:'そろえる',反復:'くり返す',ユニバーサル:'だれにでも',図解:'図にする',読みやすさ:'読みやすく'};
+const plain=r=>r.split('・').map(x=>RP[x]||x).join('・');
+S.mail.hard=['土砂災害','直ちに','発表','浸水','水位','避難','解除','全域','気象台'];
+const hw=(t,s)=>t.replace(new RegExp(s.hard.slice().sort((a,b)=>b.length-a.length).join('|'),'g'),m=>`<span class="w" data-h="word">${m}</span>`);
+const PROB0=JSON.parse(JSON.stringify(PROB));
+TOOLS.forEach(i=>{i.n0=i.n;i.d0=i.d});
+function scText(){const s=S[sc];TOOLS.forEach(i=>{const o=(s.to||{})[i.k]||{};i.n=o.n||i.n0;i.d=o.d||i.d0;});PK.forEach(k=>Object.assign(PROB[k],PROB0[k],(s.po||{})[k]||{}));}
+const STEPS=[['test','10秒テスト','問題に気づく'],['hunt','問題さがし','課題の設定'],['free','全部直す','解決策の制作'],['eval','もう一度テスト','評価'],['view','4人の視点','利用者の立場に立つ'],['three','3つだけ','改善・だれのために'],['sum','ふりかえり','技術の俯瞰']];
+const MIN={test:5,hunt:8,free:8,eval:5,view:7,three:10,sum:7};
+const INTRO={test:['01 問題に気づく','10秒で読み取れる？','まずは直す前のお知らせで試します。読めなかったことが、このあとの手がかりになります。'],hunt:['02 課題の設定','悪いところをタップ','お知らせの読みにくい所・足りない所を指でさがそう。'],
+  free:['03 解決策の制作','工夫を1つずつ使ってみよう','左が改善前、右が直しているお知らせ。工夫を1つクリックするたびに、どこが変わるか見てみよう。13個全部使うとどうなる？'],
+  eval:['04 評価','もう一度10秒テスト','全部直したお知らせで、正解が増えるか確かめよう。'],
+  view:['05 利用者の立場に立つ','4人の立場になってみよう','人を1人選んで、とくちょうを読もう。その人のために工夫を選ぶと、右側が変わっていきます。'],
+  three:['06 改善・だれのために','工夫は3つだけ','ミッションを読んで、だれを一番に考えるかを自分で決めよう。そのあと工夫を3つ選び、理由を書いて決定します。']};
+const $=s=>document.querySelector(s),after=$('#after'),before=$('#before'),scr=$('#scr'),scroll=$('#scroll'),scrB=$('#scrB'),scrollB=$('#scrollB');
+const EMPTY=new Set();
+let seen=new Set(),on=new Set(),three=new Set(),found=[],res={},why='',refl={p:'',w:'',t:'',memo:'',view:''},nm='';
+let sc='mail',mode='test',per=null,tab=0,cmp=false,tt,revealed=false,T5=null;
+let nof=false,vt={},vhint=false,tg='',tgo='',dec=false;
+let test={phase:'idle',qi:0,c:0,ans:null,order:[]};
+/* 題材ごとに記録を分ける（メールで見つけた問題がポスターに入らないように） */
+const blank=()=>({on:[],three:[],found:[],why:'',seen:[],revealed:false,vt:{},tg:'',tgo:'',dec:false});
+const ST={};Object.keys(S).forEach(k=>ST[k]=blank());
+function loadSc(){const d=ST[sc];tg=(d.tg==='other'||S[sc].mission.aud.some(x=>x.k===d.tg))?d.tg:'';tgo=d.tgo||'';dec=!!d.dec;vt={};Object.entries(d.vt||{}).forEach(([k,v])=>vt[k]=v.filter(t=>N[t]));vhint=false;on=new Set(d.on.filter(k=>N[k]));three=new Set(d.three.filter(k=>N[k]));found=d.found.filter(k=>PROB[k]);
+  why=d.why||'';seen=new Set(d.seen.filter(k=>P.some(p=>p.k===k)));revealed=!!d.revealed;per=null;const w=document.getElementById('whyIn');if(w)w.value=why;}
+function storeSc(){ST[sc]={on:[...on],three:[...three],found:[...found],why,seen:[...seen],revealed,vt,tg,tgo,dec};}
+try{const d=JSON.parse(localStorage.getItem('tl3')||'{}');
+  if(d.st)Object.keys(S).forEach(k=>{if(d.st[k])ST[k]=Object.assign(blank(),d.st[k]);});
+  res=d.res||{};refl=Object.assign(refl,d.refl||{});nm=d.nm||'';
+  if(S[d.sc])sc=d.sc;if(STEPS.some(x=>x[0]===d.mode&&x[0]!=='sum'))mode=d.mode;}catch(e){}
+loadSc();
+try{if(localStorage.getItem('tl3p')==='1')document.documentElement.classList.add('present')}catch(e){}
+const save=()=>{storeSc();try{localStorage.setItem('tl3',JSON.stringify({st:ST,res,refl,nm,sc,mode}))}catch(e){}};
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dual=(a,b)=>`<span class="ja std">${a}</span><span class="ja ez">${b}</span>`;
+const cardHTML=s=>`${s.nav?`<div class="nav">${s.nav}</div>`:''}<div class="hd" data-h="title">${s.icon}<span class="slot" data-h="mark" aria-hidden="true"></span><div>${s.kick?`<span class="kick ja">${s.kick}</span>`:''}<b><span class="ja">${s.title}</span></b><span class="en">${s.en}</span></div><span class="lv" data-h="lv"><span class="ja">${s.badge}</span></span></div>
+<p class="act" data-h="act">${dual(hw(s.act,s),s.actEz)}<span class="en">${s.actEn}</span></p><p class="para" data-h="para">${dual(hw(s.para,s),s.paraEz)}</p>
+<ul class="list">${s.list.map(([a,b,c],i)=>`<li><b>${dual(a,s.listEz[i][0])}</b><div>${dual(b,s.listEz[i][1])}<span class="en">${c}</span></div></li>`).join('')}</ul>
+<div class="fig">${s.fig}</div><a class="btn" data-h="btn" href="#">${s.kind==='poster'?QR:''}<span class="bt">${dual(s.btn,s.btnEz)}<span class="en">${s.btnEn}</span></span></a><small class="time ja" data-h="small">${s.time}</small>`;
+
+$('#seg').innerHTML=Object.entries(S).map(([k,s])=>`<button data-s="${k}">${s.n}</button>`).join('');
+$('#steps').innerHTML=STEPS.map(([k,n,ph],i)=>`<button data-m="${k}"><span class="no">0${i+1}</span><span class="nm">${n}</span><span class="ph">${ph}</span></button>`).join('');
+$('#tabs').innerHTML=TABS.map((t,i)=>`<button role="tab" data-t="${i}">${t.t}</button>`).join('')+'<button class="cmpb" id="cmpb" aria-pressed="false">比べる</button>';
+const R=[
+{n:'近接',d:'関係のある情報は近くに置き、関係のないものは離す。かたまりが見えると理解が速くなる。',a:'箇条書き・ゆとりを作る',svg:'<circle cx="40" cy="40" r="9"/><circle cx="62" cy="40" r="9"/><circle cx="40" cy="62" r="9"/><circle cx="62" cy="62" r="9"/><g class="b"><circle cx="148" cy="40" r="9"/><circle cx="170" cy="40" r="9"/><circle cx="148" cy="62" r="9"/><circle cx="170" cy="62" r="9"/></g>'},
+{n:'整列',d:'文字や図の頭をそろえる。見えない線でそろうと、すっきりして目で追いやすい。',a:'箇条書き・行間を広げる',svg:'<path d="M30 12 V92" class="l" stroke-dasharray="4 4"/><rect x="30" y="22" width="120" height="10"/><rect x="30" y="44" width="90" height="10"/><rect x="30" y="66" width="140" height="10"/>'},
+{n:'反復',d:'同じ種類の情報は、同じ形・色・大きさでくり返す。読む人がルールに気づき、迷わなくなる。',a:'箇条書き（ラベル＋内容）',svg:'<g class="b"><rect x="24" y="20" width="34" height="14"/><rect x="24" y="44" width="34" height="14"/><rect x="24" y="68" width="34" height="14"/></g><rect x="66" y="20" width="110" height="14"/><rect x="66" y="44" width="90" height="14"/><rect x="66" y="68" width="120" height="14"/>'},
+{n:'対比',d:'一番大事な情報は大きく・太く・目立つ色に。全部を目立たせると、何も目立たなくなる。',a:'大事なことを先に・緊急色・文字を大きく',svg:'<rect x="24" y="16" width="160" height="30" class="r"/><rect x="24" y="58" width="120" height="8"/><rect x="24" y="74" width="140" height="8"/>'}];
+$('#rules').innerHTML=R.map(r=>`<div class="rule"><svg viewBox="0 0 210 104" aria-hidden="true">${r.svg}</svg><div><h4>${RP[r.n]} <small>（${r.n}）</small></h4><p>${r.d}</p><small>このアプリでは：${r.a}</small></div></div>`).join('');
+const drawWho=()=>$('#who').innerHTML=P.map(p=>`<div><b>${p.n}</b><p>${p.say}</p><p><strong>助かる工夫：</strong>${p.need.map(k=>N[k].n).join('、')}</p></div>`).join('');
+$('#whyIn').value=why;
+
+const cur=()=>mode==='free'||mode==='eval'?on:mode==='three'?three:mode==='view'&&per?new Set(vt[per]||[]):EMPTY;
+const vDone=k=>{const s=new Set(vt[k]||[]);return P.find(x=>x.k===k).need.every(t=>s.has(t));};
+const reachedBy=(p,set)=>p.need.every(k=>set.has(k));
+const lens=()=>mode==='free';
+const tgName=(t,o,k=sc)=>t==='other'?(o||'').trim()||'その他':(S[k].mission.aud.find(x=>x.k===t)||{}).n||'';
+const isTest=()=>mode==='test'||mode==='eval';
+
+/* タイマー */
+let tLeft=MIN[mode]*60,tRun=false,tInt=null;
+function drawTimer(){const a=Math.abs(tLeft);$('#tm').textContent=(tLeft<0?'-':'')+Math.floor(a/60)+':'+String(a%60).padStart(2,'0');
+  const tm=$('#timer');tm.classList.toggle('run',tRun&&tLeft>0);tm.classList.toggle('over',tLeft<=0);$('#tmi').textContent=tRun?'❚❚':'▶';$('#tmb').setAttribute('aria-pressed',tRun);}
+function tToggle(){tRun=!tRun;clearInterval(tInt);if(tRun)tInt=setInterval(()=>{tLeft--;drawTimer()},1000);drawTimer();}
+function tReset(m){tRun=false;clearInterval(tInt);tLeft=MIN[m]*60;drawTimer();}
+$('#tmb').addEventListener('click',tToggle);$('#tmr').addEventListener('click',()=>tReset(mode));
+
+function drawCards(){const s=S[sc];scText();after.innerHTML=cardHTML(s);before.innerHTML=cardHTML(s);before.className='card k-'+s.kind;
+  $('#stage').dataset.kind=s.kind;['#barA','#barB'].forEach(b=>{$(b).className='bar'+(s.kind==='site'?' url':'');$(b).innerHTML=s.bar;});drawWho();
+  document.querySelectorAll('#seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.s===sc));}
+function drawTiles(){
+  const t=TABS[tab],set=cur();
+  document.querySelectorAll('#tabs [role=tab]').forEach(b=>b.setAttribute('aria-selected',+b.dataset.t===tab));
+  $('#tiles').innerHTML=t.items.map(i=>`<li><button class="row" data-k="${i.k}" aria-pressed="${set.has(i.k)}"><span class="box"></span><span class="tx"><span class="t">${i.n}</span><span class="r">${plain(i.r)}</span></span></button></li>`).join('');
+}
+function drawThree(){
+  const s=S[sc],m=s.mission,ok=tg&&(tg!=='other'||tgo.trim()),full=three.size===3,ready=ok&&full&&why.trim();
+  const mark=x=>{const n=x.need.filter(k=>three.has(k)).length;return n===x.need.length?['◎','よく伝わる']:n?['○','少し伝わる']:['－','あまり伝わらない'];};
+  $('#pThree').innerHTML=`<p class="lead"><b>工夫は3つだけ。だれのために選ぶ？</b>実際には、通知の文字数や作る時間に限りがあり、工夫を全部は使えません。ミッションを読んで、<b style="display:inline;font:inherit;color:var(--ink)">だれを一番に考えるかを自分で決めよう</b>。</p>
+  <div class="pv mis"><em>ミッション（${s.n}）</em><b>${m.t}</b><p class="pwho">${m.c}</p></div>
+  <h4 class="sh"><span>1</span>だれを一番に考える？（自分で決める）</h4>
+  <div class="chips">${m.aud.map(x=>`<button class="chip" data-tg="${x.k}" aria-pressed="${tg===x.k}" ${dec?'disabled':''}>${x.n}</button>`).join('')}<button class="chip" data-tg="other" aria-pressed="${tg==='other'}" ${dec?'disabled':''}>その他</button></div>
+  ${tg==='other'?`<input id="tgo" class="tgo" maxlength="30" value="${esc(tgo)}" placeholder="例：小さい子どもを連れた人" ${dec?'disabled':''}>`:''}
+  <h4 class="sh"><span>2</span>その人のために、工夫を3つ選ぶ（${three.size}/3）</h4>
+  ${ok?'':'<p class="fine" style="margin:0 0 6px">先に 1 で、だれを一番に考えるか決めよう。</p>'}
+  <ul class="tl vtl">${TOOLS.map(i=>`<li><button class="row" data-tk="${i.k}" aria-pressed="${three.has(i.k)}" ${!ok||dec?'disabled':''}><span class="box"></span><span class="tx"><span class="t">${i.n}</span></span></button></li>`).join('')}</ul>
+  <h4 class="sh"><span>3</span>理由を書く</h4>
+  <textarea id="why3" class="why3" maxlength="160" placeholder="例：この町はお年寄りが多いので、お年寄りが読めるように「文字を大きく」と…を選んだ。" ${dec?'disabled':''}>${esc(why)}</textarea>
+  ${dec?`<div class="pv done"><em>結果：ミッションに出てくる人たちへの伝わり方</em>
+    <ul class="res">${m.aud.map(x=>{const [a,b]=mark(x);return `<li class="${tg===x.k?'me':''}"><b>${a}</b>${x.n}<span>${b}${tg===x.k?'（一番に考えた人）':''}</span></li>`}).join('')}</ul>
+    <p class="pwho">${tg==='other'?`「${esc(tgo.trim())}」のために選んだ工夫は、ミッションの人たちにはこのように伝わります。`:''}正解は1つではありません。<b>だれを優先したか・なぜか</b>を班で発表し、ほかの班の選び方と比べよう。<br>3つでは全員に届けるのはむずかしい。そのとき、どう考えればいいだろう？</p>
+    <div class="row2"><button class="big alt" id="redo">選び直す</button><button class="big" data-go="sum">⑦ ふりかえりへ</button></div></div>`
+   :`<div class="row2" style="margin-top:12px"><button class="big" id="dec" ${ready?'':'disabled'}>決定して結果を見る</button></div>${ready?'':'<p class="fine" style="margin:-4px 0 0">1〜3がそろうと決定できます。</p>'}`}`;
+}
+$('#pThree').addEventListener('input',e=>{if(e.target.id==='why3'){why=e.target.value;save();const b=$('#dec');if(b)b.disabled=!(tg&&(tg!=='other'||tgo.trim())&&three.size===3&&why.trim());}
+  if(e.target.id==='tgo'){tgo=e.target.value;save();}});
+$('#pThree').addEventListener('change',e=>{if(e.target.id==='tgo'||e.target.id==='why3')apply();});
+$('#pThree').addEventListener('click',e=>{
+  const t=e.target.closest('[data-tg]');if(t){tg=t.dataset.tg;apply();if(tg==='other')setTimeout(()=>$('#tgo')&&$('#tgo').focus(),0);return;}
+  const k=e.target.closest('[data-tk]');if(k){const id=k.dataset.tk;
+    if(!three.has(id)&&three.size>=3){k.classList.remove('no');void k.offsetWidth;k.classList.add('no');say('3つだけ','もう3つ選んでいます','どれかを外してから選ぼう。何を外す？ それはなぜ？');return;}
+    three.has(id)?three.delete(id):three.add(id);apply();if(three.has(id)){flash(N[id].hl);say('ポイント｜'+plain(N[id].r),N[id].n,N[id].d);}return;}
+  if(e.target.closest('#dec')){dec=true;apply();say('決定しました','ミッションの人たちへの伝わり方を見てみよう','正解は1つではありません。選んだ理由を班で発表しよう。');return;}
+  if(e.target.closest('#redo')){dec=false;apply();return;}
+});
+function drawView(){
+  const p=P.find(x=>x.k===per),s=new Set(per?vt[per]||[]:[]);
+  const done=p&&vDone(per),hit=p?p.need.filter(k=>s.has(k)).length:0;
+  $('#pView').innerHTML=`<p class="lead"><b>4人の立場になってみよう</b>自分とはちがう人になったつもりで、お知らせを見ます。画面に「フィルター」をかけて、その人の見え方や状況を再現します。</p>
+  <ol class="vsteps"><li>下から1人選び、その人の<b>とくちょう</b>を読む</li><li>左（改善前）を見て、その人が困る所をさがす</li><li>その人のために、工夫を選んで<b>右</b>につけていく</li></ol>
+  <ul class="tl one">${P.map(x=>`<li><button class="row" data-pk="${x.k}" aria-pressed="${per===x.k}"><span class="box rd"></span><span class="tx"><span class="t">${x.n}</span><span class="r">${vDone(x.k)?'伝わった ✓':x.fn}</span></span></button></li>`).join('')}</ul>
+  ${p?`<div class="pv"><em>① なりきり中のとくちょう</em><b>${p.n}</b><p class="pwho">${p.who}</p>
+    <div class="flt"><span>いま画面にかけているフィルター</span><b>${p.fn}</b>：${p.fd}</div>
+    <label class="nof"><input type="checkbox" id="nof" ${nof?'checked':''}>フィルターをはずして、ふつうの見え方と比べる</label>
+    <p class="q">考えよう：${p.q}</p></div>
+    <div class="pv"><em>② ${p.n}のために工夫を選ぼう（右側が変わります）</em>
+    <p class="vprog">${done?'<b class="ok">これなら伝わる！</b>':`この人に効く工夫：<b>${hit}</b> / ${p.need.length}`}</p>
+    <ul class="tl vtl">${TOOLS.map(i=>`<li><button class="row" data-vk="${i.k}" aria-pressed="${s.has(i.k)}"><span class="box"></span><span class="tx"><span class="t">${i.n}</span>${s.has(i.k)?`<span class="r">${p.need.includes(i.k)?'◎ 効く':'△ あまり関係ない'}</span>`:''}</span></button></li>`).join('')}</ul>
+    ${done?`<p class="pwho">${p.n}には「${p.need.map(k=>N[k].n).join('」「')}」が効きました。ほかの人も見てみよう。</p>`
+      :`<button class="big alt" id="vhint" style="width:100%;margin-top:10px">${vhint?'ヒントをかくす':'ヒント：この人に効く工夫は？'}</button>${vhint?`<p class="pwho" style="margin-top:8px">${p.need.map(k=>'「'+N[k].n+'」').join('')} が効きます。とくちょうと結びつけて、なぜ効くのか考えよう。</p>`:''}`}
+    </div>`
+   :`<div class="pv"><em>はじめに</em><p class="pwho">フィルターは、体験するための「再現」です。実際の見え方や困りごとは、人によってちがいます。からかったりせず、「自分がこの人なら、どうしてほしいか」を考えながら見よう。</p></div>`}
+  ${P.every(x=>vDone(x.k))?`<div class="pv done"><em>4人全員に伝わりました</em><p class="pwho">人によって、困る所も効く工夫もちがいました。全員に必要な工夫を全部つけるのは大変です。次の⑥では、工夫を3つだけ選んで「だれを優先するか」を考えます。</p></div>`:''}
+  <div class="row2" style="margin-top:12px"><button class="big" data-go="three">⑥ 3つだけへ</button></div>`;
+}
+$('#pView').addEventListener('change',e=>{if(e.target.id==='nof'){nof=e.target.checked;apply();}});
+function drawPins(){
+  const box=$('#pins');if(mode!=='hunt'){box.innerHTML='';after.querySelectorAll('.got').forEach(e=>e.classList.remove('got'));return;}
+  const ir=box.getBoundingClientRect();let h='';
+  const list=found.map((k,i)=>[k,i+1,'']);if(revealed)PK.filter(k=>!found.includes(k)).forEach(k=>list.push([k,'?','miss']));
+  after.querySelectorAll('.got').forEach(e=>e.classList.remove('got'));
+  list.forEach(([k,n,c])=>{let x,y;
+    if(k==='fig'){const t=after.querySelector('.time').getBoundingClientRect();x=ir.width/2;y=t.bottom-ir.top+60;}
+    else{const els=after.querySelectorAll(`[data-h="${k}"]`),el=els[0];if(!el)return;els.forEach(e=>e.classList.add('got'));
+      const inl=k==='title'?el.querySelector('b'):(k==='act'||k==='btn')?el.querySelector('.std'):k==='small'?el:null;
+      const r=(inl||el).getBoundingClientRect();
+      if(k==='word'||k==='mark'){x=r.left-ir.left+r.width/2;y=r.top-ir.top+(k==='word'?-12:r.height/2);}
+      else{x=k==='lv'?r.left-ir.left-16:inl?r.right-ir.left+16:r.right-ir.left-8;y=r.top-ir.top+(inl?r.height/2:4);}
+      x=Math.max(16,Math.min(x,ir.width-16));}
+    h+=`<span class="pin ${c}" style="left:${x}px;top:${y}px">${n}</span>`;});
+  box.innerHTML=h;
+}
+const huntOK=()=>found.length===PK.length||revealed;
+function drawHunt(){
+  const items=found.map((k,i)=>[k,i+1,'']);if(revealed)PK.filter(k=>!found.includes(k)).forEach(k=>items.push([k,'?','miss']));
+  $('#pHunt').innerHTML=`<p class="lead"><b>お知らせの「悪いところ」を指でタップしよう</b>まずは一人で、そのあと班で比べよう。見つけた問題を直すには、どんな工夫がいるかも考えよう。</p>
+  <div class="row2"><button class="big alt" id="hint">ヒント</button><button class="big alt" id="reveal">${revealed?'答えをかくす':'答えを見る'}</button><button class="big" data-go="free" ${huntOK()?'':'disabled'}>③ 全部直すへ</button></div>
+  ${huntOK()?'':'<p class="fine" style="margin:-4px 0 10px">答え合わせをしてから進めます。9つ全部見つけるか、「答えを見る」で見つけられなかった問題を確かめよう。</p>'}
+  ${items.length||revealed?`<ol class="flist">${items.slice().reverse().map(([k,n,c])=>`<li class="${c}"><span class="no">${n}</span><div><b>${PROB[k].n}</b><p>${PROB[k].d}</p><small>ポイント：${plain(PROB[k].r)}　→ 直す工夫：${PROB[k].fix}</small></div></li>`).join('')}
+  </ol>`:''}`;
+}
+function drawTest(){
+  const ev=mode==='eval',r=(res[sc]||{}),f=o=>o?`${o.c}<small>/${o.t}</small>`:'—';
+  const sb=`<div class="score"><div>改善前<b>${f(r.before)}</b></div><div>改善後<b class="${r.after&&r.before&&r.after.c>r.before.c?'up':''}">${f(r.after)}</b></div></div>`;
+  const nx=ev?['view','⑤ 4人の視点へ']:['hunt','② 問題さがしへ'];
+  let h='',c='';
+  if(test.phase==='idle'){
+    if(ev&&!on.size){
+      c=`<b class="qm">？</b><p class="ct">まだお知らせを直していません<small>③ 全部直す でお知らせを直してから、もう一度テストしよう。</small></p><button class="cbtn" data-go="free">③ 全部直すへ</button>`;
+      h=`<p class="lead"><b>先に ④ でお知らせを直そう</b>直したお知らせで、もう一度10秒テストをします。</p>${sb}`;
+    }else{
+      c=`<b class="qm">10秒</b><p class="ct">${ev?'直したお知らせ':'お知らせ'}を10秒だけ見て、<br>2つの問題に答えます<small>${S[sc].hint}を、よく見よう。</small></p><button class="cbtn" data-v="1">スタート</button>`;
+      h=`<p class="lead"><b>${ev?'直したお知らせで、もう一度10秒テスト':'10秒だけお知らせを見て、問題に答えよう'}</b>${ev?'改善前より正解が増えるかな？ 増えなかったら、どこを直せばいいか考えよう。':'画面の「スタート」を押すと始まります。プロジェクターに映して、クラス全員で答えてもかまいません。'}</p>${sb}${ev?'':'<div class="row2" style="margin-top:12px"><button class="big alt" id="real">本物の例を見る</button></div>'}`;
+    }
+  }else if(test.phase==='count'){
+    h=`<p class="lead"><b>よく見て！</b>このあと「${S[sc].q[0].q}」「${S[sc].q[1].q}」を聞きます。</p>`;
+  }else if(test.phase==='q'){
+    const q=S[sc].q[test.qi];
+    c=`<p class="cq"><span>Q${test.qi+1} / 2</span>${q.q}</p>${test.order.map((i,j)=>{let k='';if(test.ans!==null){if(i===0)k='ok';else if(i===test.ans)k='ng';}
+      return `<button class="copt ${k}" data-a="${i}" data-l="${'ABC'[j]}" ${test.ans!==null?'disabled':''}>${q.a[i]}</button>`}).join('')}
+      <button class="copt dk ${test.ans===3?'sel':''}" data-a="3" data-l="?" ${test.ans!==null?'disabled':''}>わからない</button>
+      ${test.ans===3?'<p class="ct" style="text-align:left;margin-top:2cqw"><small>正直に答えられたね。正解は黄色の答えです。なぜ読み取れなかったのかを考えよう。</small></p>':''}
+      ${test.ans!==null?`<div class="crow"><button class="cbtn" id="next">${test.qi<1?'次の問題':'結果を見る'}</button></div>`:''}`;
+    h=`<p class="lead"><b>思い出して答えよう</b>お知らせはかくれています。班で相談せず、まずは自分の記憶で答えよう。</p>`;
+  }else{
+    const up=ev&&r.before&&r.after&&r.after.c>r.before.c;
+    const msg=ev?(up?'正解が増えました。どの工夫が効いたのか話し合おう。':'まだ伝わりきっていないかも。④ に戻って、何を直せばいいか考えよう。'):'10秒で読み取れた？ どこが読みにくかったか、② 問題さがしで確かめよう。';
+    c=`<p class="cres">${ev?'改善後':'改善前'}のお知らせ<b>${test.c}<small>/2</small></b>問 正解${test.u?`<br><small>「わからない」${test.u}問</small>`:''}</p>
+      ${r.before&&r.after?`<div class="cvs"><span>改善前 <b>${r.before.c}</b></span><span>→</span><span>改善後 <b>${r.after.c}</b></span></div>`:''}
+      <div class="crow"><button class="cbtn alt" id="peek">お知らせを見る</button><button class="cbtn alt" id="again">もう一度</button></div>
+      <div class="crow">${ev&&!up?'<button class="cbtn alt" data-go="free">③ に戻る</button>':''}<button class="cbtn" data-go="${nx[0]}">${nx[1]}</button></div>`;
+    h=`<p class="lead"><b>${ev?'改善後':'改善前'}：2問中 ${test.c}問 正解</b>${msg}</p>
+    ${test.peek?`<div class="row2"><button class="big alt" id="unpeek">結果に戻る</button><button class="big alt" id="again">もう一度</button><button class="big" data-go="${nx[0]}">${nx[1]}</button></div>`:''}${sb}`;
+  }
+  $('#pTest').innerHTML=h;
+  const cv=$('#cover');cv.dataset.p=test.phase;cv.innerHTML=c;
+}
+function apply(){
+  if(mode!=='view')per=null;
+  const set=cur();
+  after.className='card k-'+S[sc].kind+' '+[...set].map(k=>'f-'+k).join(' ')+(mode==='hunt'?' hunt':'');
+  const r=P.filter(p=>reachedBy(p,set)).length;
+  const hl=$('#hudL');
+  hl.innerHTML=mode==='free'?`工夫<span class="n">${set.size}<small>/${TOOLS.length}</small></span>`
+    :mode==='three'?`選んだ工夫<span class="n">${three.size}<small>/3</small></span>`
+    :mode==='hunt'?`見つけた問題<span class="n">${found.length}<small>/${PK.length}</small></span>`
+    :`${mode==='eval'?'改善後':'改善前'}のお知らせ｜${S[sc].n}`;
+  const p=P.find(x=>x.k===per);
+  if(mode==='view')hl.innerHTML=p?`なりきり中：${p.n}<small>（${nof?'フィルターなし':p.fn}）</small>`:'だれになってみる？';
+  const AU=S[sc].mission.aud;$('#hudM').innerHTML=mode==='three'&&dec?`よく伝わる人<span class="n">${AU.filter(x=>reachedBy(x,set)).length}<small>/${AU.length}</small></span><span class="marks" aria-hidden="true">${AU.map(x=>`<i class="${reachedBy(x,set)?'y':''}" title="${x.n}"></i>`).join('')}</span>`:'';
+  if(mode==='view')cmp=true;else if(!lens())cmp=false;
+  $('#tagB').textContent=mode==='view'&&p?`${p.n}から見た改善前`:'改善前';
+  $('#tagA').textContent=mode==='view'?(p?`${p.n}のために選んだ工夫`:'改善前'):'改善後';
+  const fon=!!(p&&!nof);[scroll,scrollB].forEach(s=>s.style.filter=fon&&p.f?p.f:'');[scr,scrB].forEach(s=>{s.classList.toggle('foreign',fon&&per==='foreign');s.classList.toggle('hurry',fon&&per==='hurry');});
+  $('#stage').classList.toggle('duo',cmp);$('#cmpb').setAttribute('aria-pressed',cmp);
+  $('#nextB').innerHTML=mode==='free'?`<div class="row2"><button class="big alt" id="allOff">全部はずす</button><button class="big alt" id="allOn">全部つける</button></div><div class="row2"><button class="big" data-go="eval">④ もう一度テストへ</button></div><div class="row2"><button class="big alt" id="real">本物の例を見る</button></div>`
+    :mode==='three'?`<div class="row2"><button class="big" data-go="sum">⑦ ふりかえりへ</button></div>`:'';
+  $('#pFree').hidden=!lens();$('#pView').hidden=mode!=='view';$('#pThree').hidden=mode!=='three';$('#pHunt').hidden=mode!=='hunt';$('#pTest').hidden=!isTest();
+  $('#why').hidden=mode!=='three';
+  scr.classList.toggle('covered',isTest()&&(test.phase==='idle'||test.phase==='q'||(test.phase==='done'&&!test.peek)));
+  scr.classList.toggle('counting',isTest()&&test.phase==='count');
+  $('#sidePer').innerHTML=mode==='three'?`<em>3つだけチャレンジ</em><p>工夫は3つまで。全員を助けることはできません。<strong>だれを優先する？</strong> 選んだら上の欄に理由を書こう。</p>`
+    :`<em>ヒント</em><p>1つつけるたびに、右側のどこが変わったかを見よう。光った所が、その工夫で変わった所です。</p>`;
+  const fin={test:!!(res[sc]||{}).before,hunt:found.length===PK.length,three:dec,free:on.size===TOOLS.length,eval:!!(res[sc]||{}).after,view:P.every(x=>vDone(x.k)),sum:!!refl.t.trim()};
+  document.querySelectorAll('#steps button').forEach(b=>{const m=b.dataset.m;if(m===mode)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.classList.toggle('fin',fin[m]);});
+  if(lens())drawTiles();if(mode==='view')drawView();if(mode==='three')drawThree();if(mode==='hunt')drawHunt();if(isTest())drawTest();
+  requestAnimationFrame(drawPins);
+  save();
+}
+function say(em,b,d){
+  $('#toast').innerHTML=`<em>${em}</em><b>${b}</b>${d}`;$('#toast').classList.add('show');clearTimeout(tt);tt=setTimeout(()=>$('#toast').classList.remove('show'),4200);
+  $('#note').innerHTML=`<em>${em}</em><b>${b}</b><p>${d}</p>`;
+}
+function flash(sel){
+  const els=sel?[...after.querySelectorAll(sel)]:[after];
+  els.forEach(e=>{e.classList.remove('flash');void e.offsetWidth;e.classList.add('flash')});
+  const f=els.find(e=>e.offsetParent);if(f&&sel){const top=f.offsetTop-12;if(top<scroll.scrollTop||top>scroll.scrollTop+scroll.clientHeight-80)scroll.scrollTo({top,behavior:'smooth'})}
+}
+function setMode(m){
+  tReset(m);
+  if(m==='sum'){openSum();return;}
+  clearTimeout(T5);mode=m;test={phase:'idle',qi:0,c:0,ans:null,order:[]};
+  if(m==='free'){cmp=true;tab=0;}
+  if(m==='three')cmp=false;
+  apply();scroll.scrollTop=0;
+  say(...INTRO[m]);
+  document.querySelector(`#steps [data-m="${m}"]`).scrollIntoView({inline:'nearest',block:'nearest'});
+}
+function startTest(){
+  test={phase:'count',qi:0,c:0,u:0,ans:null,order:[0,1,2].sort(()=>Math.random()-.5)};scroll.scrollTop=0;
+  let n=10;$('#cdn').textContent=n;
+  const bar=$('#cdbar');bar.style.animation='none';void bar.offsetWidth;bar.style.animation='';
+  apply();
+  const tick=()=>{n--;$('#cdn').textContent=n;if(n>0)T5=setTimeout(tick,1000);else{test.phase='q';apply();}};
+  T5=setTimeout(tick,1000);
+}
+
+$('#tiles').addEventListener('click',e=>{const b=e.target.closest('.row');if(!b)return;const k=b.dataset.k;
+  const set=mode==='three'?three:on;
+  if(mode==='three'&&!set.has(k)&&set.size>=3){b.classList.remove('no');void b.offsetWidth;b.classList.add('no');
+    say('3つだけ','もう3つ選んでいます','どれかを外してから選ぼう。何を外す？ それはなぜ？');return;}
+  const add=!set.has(k);add?set.add(k):set.delete(k);apply();
+  const i=N[k];say('ポイント｜'+plain(i.r),i.n+(add?'':'（取り消し）'),i.d);if(add)flash(i.hl);
+  if(add&&mode==='free'&&on.size===TOOLS.length)setTimeout(()=>say('13個全部使いました','改善前とくらべて、どう変わった？','左右を見比べて、いちばん効いた工夫を考えよう。'),1800);
+  if(mode==='three'&&set.size===3){const ok=P.filter(p=>reachedBy(p,set)).map(p=>p.n);
+    setTimeout(()=>say('3つ選びました',ok.length?ok.join('・')+'に伝わる！':'まだだれにも十分に伝わっていない…','だれを優先したのか、理由を書こう。'),1600);}
+});
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.id==='cmpb'){cmp=!cmp;apply();if(cmp){scroll.scrollTo({top:0,behavior:'smooth'});say('比べる','2台を見比べよう','左が改善前、右が改善後。どこが変わったか探そう。');}return;}
+  tab=+b.dataset.t;drawTiles();});
+$('#steps').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+  const ix=m=>STEPS.findIndex(x=>x[0]===m);
+  if(mode==='hunt'&&!huntOK()&&ix(b.dataset.m)>ix('hunt')){say('問題さがし','先に答え合わせをしよう','9つ全部見つけるか、「答えを見る」で見つけられなかった問題を確かめてから進もう。');return;}
+  setMode(b.dataset.m)});
+$('#seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.dataset.s===sc)return;storeSc();sc=b.dataset.s;loadSc();cmp=mode==='free'||mode==='view';clearTimeout(T5);test={phase:'idle',qi:0,c:0,ans:null,order:[]};drawCards();apply();scroll.scrollTop=0;});
+$('#reset').addEventListener('click',()=>{
+  if(mode==='view'){if(per)vt[per]=[];vhint=false;}else if(mode==='free')on.clear();else if(mode==='three'){three.clear();why='';tg='';tgo='';dec=false;}else if(mode==='hunt'){found=[];revealed=false;}
+  else{const r=res[sc];if(r)delete r[mode==='eval'?'after':'before'];clearTimeout(T5);test.phase='idle';}
+  per=null;cmp=false;apply();scroll.scrollTop=0;say('やり直す','このステップを最初からやり直します','');});
+$('#whyIn').addEventListener('input',e=>{why=e.target.value;save();});
+$('#whyIn').addEventListener('change',apply);
+const ctl=e=>{
+  const vk=e.target.closest('[data-vk]');if(vk&&per){const k=vk.dataset.vk,s=new Set(vt[per]||[]),p=P.find(x=>x.k===per),add=!s.has(k);add?s.add(k):s.delete(k);vt[per]=[...s];apply();
+    if(add){flash(N[k].hl);const hit=p.need.includes(k);say(hit?'◎ '+p.n+'に効く工夫':'△ この人には、あまり関係ないかも',N[k].n,hit?N[k].d:p.n+'の困りごと（'+p.fn.replace('フィルター','')+'）とは、あまり関係がなさそう。ほかの工夫をさがそう。');
+      if(vDone(per))setTimeout(()=>say('これなら伝わる！',p.n+'のための工夫がそろいました',P.every(x=>vDone(x.k))?'4人全員そろいました。次は⑥「3つだけ」へ。':'ほかの人にもなりきってみよう。'),1500);}
+    return;}
+  if(e.target.closest('#vhint')){vhint=!vhint;apply();return;}
+  const pp=e.target.closest('[data-pk]');if(pp){per=per===pp.dataset.pk?null:pp.dataset.pk;nof=false;vhint=false;if(per)seen.add(per);apply();
+    const p=P.find(x=>x.k===per);
+    if(p)say('なりきり中：'+p.n,p.fn+'をかけています',p.who);
+    else say('視点','ふつうの見え方にもどしました','');
+    if(p&&seen.size===P.length)setTimeout(()=>say('4人全員を見ました','人によって困る所がちがう','全員に必要な工夫を全部つけるのは大変。次は「3つだけ」で、だれを優先するか考えよう。'),2200);
+    return;}
+  const g=e.target.closest('[data-go]');if(g){setMode(g.dataset.go);return;}
+  const v=e.target.closest('[data-v]');if(v){startTest();return;}
+  const a=e.target.closest('[data-a]');if(a&&test.ans===null){test.ans=+a.dataset.a;if(test.ans===0)test.c++;if(test.ans===3)test.u++;apply();return;}
+  if(e.target.closest('#next')){if(test.qi<1){test.qi++;test.ans=null;test.order=[0,1,2].sort(()=>Math.random()-.5);}
+    else{test.phase='done';test.peek=false;res[sc]=res[sc]||{};res[sc][mode==='eval'?'after':'before']={c:test.c,t:2};}apply();return;}
+  if(e.target.closest('#again')){test.phase='idle';test.peek=false;apply();return;}
+  if(e.target.closest('#peek')){test.peek=true;apply();return;}
+  if(e.target.closest('#unpeek')){test.peek=false;apply();return;}
+  if(e.target.closest('#hint')){const k=PK.find(x=>!found.includes(x));say('ヒント',k?PROB[k].h:'全部見つけました！','');return;}
+  if(e.target.closest('#reveal')){revealed=!revealed;apply();return;}
+  if(e.target.closest('#real')){openReal();return;}
+  if(e.target.closest('#allOn')){TOOLS.forEach(i=>on.add(i.k));apply();say('全部つける','全部の工夫を使いました','改善前とくらべて、どれくらい読みやすくなった？');return;}
+  if(e.target.closest('#allOff')){on.clear();apply();say('全部はずす','改善前と同じになりました','1つずつつけて、どの工夫がどこを変えるか確かめよう。');return;}
+};
+document.querySelector('.dock').addEventListener('click',ctl);
+$('#cover').addEventListener('click',ctl);
+after.addEventListener('click',e=>{
+  if(mode==='hunt'){e.preventDefault();
+    let k=(e.target.closest('[data-h]')||{}).dataset?.h;
+    if(!k){const t=after.querySelector('.time').getBoundingClientRect();if(e.clientY>t.bottom+12)k='fig';}
+    if(!k){say('問題さがし','そこは大丈夫そう','ほかの場所をさがしてみよう。');return;}
+    if(found.includes(k)){say('問題さがし','そこはもう見つけたよ',PROB[k].n);return;}
+    found.push(k);apply();say(`見つけた！ ${found.length}/${PK.length}`,PROB[k].n,PROB[k].d);
+    if(found.length===PK.length)setTimeout(()=>say('全部見つけた！',`${PK.length}つの問題を全部見つけました`,'班で、どの問題がいちばん困るかを話し合おう。'),1800);
+    return;}
+  if(e.target.closest('.btn')){e.preventDefault();if(mode==='free'&&!on.has('fig')){on.add('fig');apply();say('ポイント｜図にする','図で見せる',N.fig.d);flash('.fig')}}
+});
+before.addEventListener('click',e=>e.preventDefault());
+addEventListener('resize',()=>requestAnimationFrame(drawPins));
+/* 2台並べたとき、右をスクロールすると左も同じ割合で動く */
+scroll.addEventListener('scroll',()=>{if(!cmp)return;const m=scroll.scrollHeight-scroll.clientHeight,mb=scrollB.scrollHeight-scrollB.clientHeight;scrollB.scrollTop=m>0?scroll.scrollTop/m*mb:0;});
+
+/* ふりかえり・提出・印刷 */
+const WHO=['お年寄り','色の見え方が違う人','外国から来た人','急いでいる人','だれにでも'];
+const toolN=(k,t)=>((S[k].to||{})[t]||{}).n||N[t].n0;
+const probN=(k,q)=>((S[k].po||{})[q]||{}).n||PROB0[q].n;
+const hasData=k=>res[k]||ST[k].found.length||ST[k].on.length||ST[k].three.length;
+const testLine=k=>{const r=res[k];return `${S[k].n}：改善前 ${r.before?r.before.c+'/2':'—'} → 改善後 ${r.after?r.after.c+'/2':'—'}`};
+function sumText(){
+  const L=[];L.push('【伝わるラボ ふりかえり】'+(nm.trim()?'　'+nm.trim():''));
+  storeSc();const ks=Object.keys(S).filter(hasData);
+  if(!ks.length)L.push('（まだ記録がありません）');
+  ks.forEach(k=>{const d=ST[k],r=res[k]||{},t3=new Set(d.three);
+    L.push(`■ ${S[k].n}`);
+    L.push(`　①④ 10秒テスト：改善前 ${r.before?r.before.c+'/2':'—'} → 改善後 ${r.after?r.after.c+'/2':'—'}`);
+    L.push(`　② 問題さがし：${d.found.length}/${PK.length}個`+(d.found.length?'（'+d.found.map(q=>probN(k,q)).join('、')+'）':''));
+    L.push(`　③ 全部直す：工夫 ${d.on.length}/${TOOLS.length}`);
+    L.push(`　⑥ 3つだけ：一番に考えた人「${tgName(d.tg,d.tgo,k)||'（未選択）'}」→ ${d.three.length?d.three.map(t=>toolN(k,t)).join('・'):'（未選択）'}（よく伝わる人：${S[k].mission.aud.filter(p=>reachedBy(p,t3)).map(p=>p.n).join('・')||'なし'}）`);
+    L.push(`　　理由：${(d.why||'').trim()||'（未記入）'}`);});
+  L.push('⑦ ふりかえり');
+  L.push(`　「${refl.p||'〇〇'}」を使うと、${refl.w||'〇〇'}に「${refl.t.trim()||'〇〇'}」が伝わる。`);
+  if(refl.view.trim())L.push('　たくさんの人に届ける技術のよい点・心配な点：'+refl.view.trim());
+  if(refl.memo.trim())L.push('　これから気をつけたいこと：'+refl.memo.trim());
+  return L.join('\n');
+}
+function openSum(){
+  storeSc();const ks=Object.keys(S).filter(hasData);
+  const opt=(arr,v,ph)=>`<option value="">${ph}</option>`+arr.map(a=>`<option ${a===v?'selected':''}>${a}</option>`).join('');
+  $('#sumBody').innerHTML=`<p style="margin-top:20px"><label class="fl" style="margin:0">クラス・番号・名前（任意）<br><input id="sNm" value="${esc(nm)}" maxlength="40" style="width:min(100%,340px);margin-top:4px"></label></p>
+  <div class="sgrid">${ks.length?ks.map(k=>{const d=ST[k],r=res[k]||{},t3=new Set(d.three);return `<div><em>${S[k].n}</em>
+    <p>10秒テスト：改善前 ${r.before?r.before.c+'/2':'—'} → 改善後 ${r.after?r.after.c+'/2':'—'}</p>
+    <p>問題さがし：${d.found.length}/${PK.length}　全部直す：${d.on.length}/${TOOLS.length}</p>
+    <p>3つだけ（${esc(tgName(d.tg,d.tgo,k)||'未選択')}のため）：${d.three.length?d.three.map(t=>toolN(k,t)).join('・'):'まだ選んでいません'}（よく伝わる人 ${S[k].mission.aud.filter(p=>reachedBy(p,t3)).length}/${S[k].mission.aud.length}）</p>
+    <p>理由：${esc((d.why||'').trim()||'未記入')}</p></div>`}).join(''):'<div><p>まだ記録がありません。</p></div>'}
+  </div>
+  <h3><span class="k">01</span>学んだことを一文で</h3>
+  <div class="sent"><span>「</span><select id="rP" aria-label="工夫">${opt(TOOLS.map(i=>i.n),refl.p,'工夫を選ぶ')}</select><span>」を使うと、</span><select id="rW" aria-label="だれに">${opt(WHO,refl.w,'だれに')}</select><span>に</span><input id="rT" value="${esc(refl.t)}" placeholder="例：何をすればいいか" aria-label="何が伝わる"><span>が伝わる。</span></div>
+  <h3><span class="k">02</span>技術を見わたす</h3>
+  <label class="fl" for="rV" style="margin-top:0">情報をスマホやWebで、たくさんの人に一度に届ける技術（緊急速報メール・Webサイト・SNSなど）の、よい点と心配な点は？</label>
+  <textarea id="rV" placeholder="よい点：…　心配な点：…">${esc(refl.view)}</textarea>
+  <label class="fl" for="rM">これから自分が何かを伝えるとき（ポスター・発表・メッセージなど）、気をつけたいこと</label>
+  <textarea id="rM">${esc(refl.memo)}</textarea>
+  <h3><span class="k">03</span>提出</h3><pre id="sPre"></pre><div class="row2"><button class="big" id="copy">コピーする</button><button class="big alt" id="pdfSum">PDFで保存</button></div><p class="fine" id="copyMsg"></p>`;
+  $('#sPre').textContent=sumText();
+  openSheet($('#sum'),$('#closeSum'));
+}
+$('#sumBody').addEventListener('input',e=>{const id=e.target.id,v=e.target.value;
+  if(id==='sNm')nm=v;if(id==='rP')refl.p=v;if(id==='rW')refl.w=v;if(id==='rT')refl.t=v;if(id==='rM')refl.memo=v;if(id==='rV')refl.view=v;
+  $('#sPre').textContent=sumText();save();});
+$('#sumBody').addEventListener('click',async e=>{
+  if(e.target.closest('#pdfSum')){savePDF(e.target.closest('#pdfSum'));return;}
+  if(!e.target.closest('#copy'))return;
+  try{await navigator.clipboard.writeText(sumText());$('#copyMsg').textContent='コピーしました。Google Classroom や Teams などに貼り付けて提出しよう。';}
+  catch(err){const r=document.createRange();r.selectNodeContents($('#sPre'));const s=getSelection();s.removeAllRanges();s.addRange(r);$('#copyMsg').textContent='自動でコピーできませんでした。選択された文章を長押しでコピーしてください。';}});
+function wsHTML(f){
+  const U='<u></u>',V=x=>f&&x&&x.trim()?esc(x.trim()):'';
+  const rows=f&&found.length?found.map(k=>[PROB[k].n,plain(PROB[k].r),PROB[k].fix]):Array(PK.length).fill(['','','']);
+  const tests=f?(Object.keys(S).filter(k=>res[k]).map(testLine).join('　／　')||'未実施'):`改善前 ${U} ／2　　改善後 ${U} ／2`;
+  return `<h1>情報デザイン ワークシート「伝わるお知らせ」${f?'（'+S[sc].n+'）':''}<span>${f&&nm.trim()?esc(nm.trim()):'年　　組　　番　名前'}</span></h1>
+  <section><h2>①④ 10秒テスト</h2><p>${tests}</p><p>10秒で読み取れなかったことは？ それはなぜ？</p><div class="bx s"></div></section>
+  <section><h2>② 問題さがし</h2><table><tr><th style="width:42%">見つけた問題</th><th style="width:22%">どのポイント？</th><th>直す工夫</th></tr>${rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</table></section>
+  <section><h2>⑥ 3つだけ</h2><p>ミッション：${f?esc(S[sc].mission.t):U}　／　一番に考えた人：${f&&tg?esc(tgName(tg,tgo)):U}</p><p>選んだ工夫：${f&&three.size?[...three].map(k=>N[k].n).join('・'):`${U}・${U}・${U}`}</p><p>だれのために？ なぜこの3つ？</p><div class="bx">${V(why)}</div></section>
+  <section><h2>⑦ ふりかえり</h2><p>「${V(refl.p)||U}」を使うと、${V(refl.w)||U}に「${V(refl.t)||U}」が伝わる。</p>
+  <p>情報をスマホやWebで、たくさんの人に一度に届ける技術の、よい点と心配な点</p><div class="bx">${V(refl.view)}</div>
+  <p>これから自分が情報を伝えるときに気をつけたいこと</p><div class="bx">${V(refl.memo)}</div></section>`;
+}
+function printWS(f){$('#printArea').innerHTML=wsHTML(f);window.print();}
+/* PDF：印刷画面を出さずに、PDFファイルを直接ダウンロードする */
+let pdfLib=null;
+function loadPdfLib(){if(window.html2pdf)return Promise.resolve();if(pdfLib)return pdfLib;
+  pdfLib=new Promise((ok,ng)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';s.onload=ok;s.onerror=()=>{pdfLib=null;ng()};document.head.appendChild(s);});return pdfLib;}
+async function savePDF(btn){
+  const msg=$('#copyMsg'),label=btn.textContent;btn.disabled=true;btn.textContent='PDFを作っています…';
+  try{await loadPdfLib();storeSc();
+    const hold=document.createElement('div');hold.className='pdfhold';const box=document.createElement('div');box.className='pdfdoc';box.innerHTML=wsHTML(true);hold.appendChild(box);document.body.appendChild(hold);
+    const name=('伝わるラボ_ふりかえり_'+S[sc].n+(nm.trim()?'_'+nm.trim():'')).replace(/[\\/:*?"<>|\s]+/g,'_')+'.pdf';
+    await html2pdf().set({margin:[10,10,10,10],filename:name,image:{type:'jpeg',quality:.95},html2canvas:{scale:2,backgroundColor:'#ffffff'},jsPDF:{unit:'mm',format:'a4',orientation:'portrait'},pagebreak:{mode:['css','legacy'],avoid:'section'}}).from(box).save();
+    hold.remove();msg.textContent='PDFを保存しました（ダウンロードフォルダを見てください）。Google Classroom などで提出しよう。';
+  }catch(err){msg.textContent='PDFを作れませんでした。インターネットにつながっているか確かめてから、もう一度押してください。';document.querySelectorAll('.pdfhold').forEach(e=>e.remove());}
+  btn.disabled=false;btn.textContent=label;}
+
+/* 本物の例 */
+const PH=[['0/07','Earthquake-Early-Warning-on-Smartphone_01.jpg'],['b/b4','Earthquake-Early-Warning-on-Smartphone_02.jpg']];
+function openReal(){const s=S[sc],m=s.kind==='mail';
+  $('#realBody').innerHTML=(m?`<p class="intro">2023年5月26日、千葉県東方沖で地震があったときに、実際にスマホに届いた緊急地震速報です。</p>
+  <div class="photos">${PH.map(([d,f])=>`<figure><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/${d}/${f}/960px-${f}" alt="スマートフォンに届いた緊急地震速報の画面" loading="lazy" onerror="this.closest('figure').classList.add('ng')"><p class="fine ngm">写真を読みこめませんでした。インターネットにつながっているか確かめてください。</p><figcaption class="fine">写真：<a href="https://commons.wikimedia.org/wiki/File:${f}" target="_blank" rel="noopener">RuinDig/Yuki Uchida</a>（CC BY 4.0／Wikimedia Commons）</figcaption></figure>`).join('')}</div>
+  <h3><span class="k">01</span>考えよう</h3><p>本物のメールには、どんな工夫がある？ このアプリの13個の工夫のうち、どれが使われているかな？ 反対に、もっとよくできる所はある？</p>
+  <details class="ans"><summary>答えの例を見る（班で話し合ってから開こう）</summary><div class="bd">
+  <h4>使われている工夫</h4><ul>
+  <li><b>警告マーク</b>：黄色と黒の大きなマーク（建物がゆれる絵）。文字が読めなくても「地震だ」とわかる。</li>
+  <li><b>大事なことを先に</b>：一番上に「緊急地震速報」、すぐ下に「強い揺れに備えてください」。何をすればいいかが最初にある。</li>
+  <li><b>色をはっきり</b>：白い枠に黒い文字、黄色と黒のマーク。明るさの差が大きく、目に入りやすい。</li>
+  <li><b>緊急色</b>：見出しの横に赤い三角の注意マーク。</li>
+  <li><b>ゆとりを作る</b>：文章は短く、まわりに余白がある。つめこんでいない。</li>
+  <li><b>大きなボタン</b>：下に「OK」のボタン。画面の上に大きく表示され、ほかの画面より前に出る。</li>
+  </ul>
+  <h4>あまり使われていない工夫（もっとよくできる所）</h4><ul>
+  <li><b>文字を大きく</b>：マークにくらべて文字が小さい。お年寄りには読みにくいかも。</li>
+  <li><b>英語をそえる・やさしい日本語</b>：日本語だけ。「備えて」はむずかしい言葉かもしれない。</li>
+  <li><b>図で見せる</b>：どこでゆれるかの地図はない（地震はすぐにゆれるので、短さを優先しているとも考えられる）。</li>
+  </ul>
+  <h4>13個の工夫以外の工夫</h4><ul>
+  <li>専用の<b>音</b>とバイブレーションで知らせる。画面を見ていなくても気づける（目以外で伝える工夫）。</li>
+  </ul>
+  <p class="fine">写真から読み取れる範囲の例です。機種やメールの種類によって表示はちがいます。</p></div></details>`
+  :s.kind==='poster'?`<p class="intro">町のお店や商店街のポスターを想定した見本です（このアプリで作った<b>架空のポスター</b>です）。</p>
+  <div class="fp" role="img" aria-label="架空のポスター：ひばり台商店街 夏まつり 8月1日・2日">
+  <div class="fk">ひばり台商店街</div><h4>夏まつり</h4><div class="fe">HIBARIDAI SUMMER FESTIVAL</div>
+  <svg class="art" viewBox="0 0 200 48" aria-hidden="true"><path d="M0 18 Q100 46 200 14" stroke="#fff7e6" stroke-width="1.5" fill="none" opacity=".6"/>${[[30,26],[70,34],[110,34],[150,27],[188,17]].map(([x,y],i)=>`<line x1="${x}" y1="${y-6}" x2="${x}" y2="${y}" stroke="#fff7e6" stroke-width="1.5"/><rect x="${x-11}" y="${y}" width="22" height="30" rx="10" fill="${i%2?'#ffd166':'#e63946'}"/><path d="M${x-11} ${y+10}h22M${x-11} ${y+20}h22" stroke="#14204a" stroke-width="1" opacity=".35"/><rect x="${x-6}" y="${y+29}" width="12" height="4" fill="#14204a"/>`).join('')}</svg><svg class="fw" viewBox="120 75 60 60" aria-hidden="true"><g stroke="#ffd166" stroke-width="2" stroke-linecap="round" opacity=".9">${Array.from({length:12},(_,i)=>{const a=i*Math.PI/6;return `<line x1="${150+Math.cos(a)*8}" y1="${105+Math.sin(a)*8}" x2="${150+Math.cos(a)*24}" y2="${105+Math.sin(a)*24}"/>`}).join('')}</g><circle cx="150" cy="105" r="4" fill="#fff7e6"/></svg>
+  <div class="date"><b>8.1</b><small>土</small><b>2</b><small>日</small><span>17:00 – 21:00</span></div>
+  <div class="what"><i>屋台</i><i>盆おどり</i><i>花火</i></div>
+  <dl><dt>会場</dt><dd>ひばり台商店街通り（駅前から3分）</dd><dt>雨のとき</dt><dd>中止（当日12時に Web でお知らせ）</dd><dt>English</dt><dd>Food stalls, Bon dance, fireworks</dd></dl>
+  <div class="foot">${QR.replace('class="qr"','')}<p><b>くわしくは Web で</b>出店一覧・地図はこちら</p><div class="nocar"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#fff" stroke="#e63946" stroke-width="4"/><path d="M11 24v-4l3-6h12l3 6v4z" fill="#14204a"/><line x1="8" y1="32" x2="32" y2="8" stroke="#e63946" stroke-width="4"/></svg>車での来場は<br>ご遠慮ください</div></div>
+  </div>
+  <h3><span class="k">01</span>考えよう</h3><p>このポスターには、どんな工夫がある？ パン屋さんのポスターと同じ工夫・ちがう工夫はどれ？ もっとよくできる所はある？</p>
+  <details class="ans"><summary>答えの例を見る（班で話し合ってから開こう）</summary><div class="bd">
+  <h4>使われている工夫</h4><ul>
+  <li><b>文字を大きく</b>・<b>大事なことを先に</b>：「夏まつり」と日付「8.1・2」がいちばん大きい。何の・いつのお知らせかが遠くからでもわかる。</li>
+  <li><b>目立つ色</b>・<b>色をはっきり</b>：紺の地に、白・黄・赤。明るさの差が大きく、色は3色だけにしぼっている。</li>
+  <li><b>絵や写真で見せる</b>：ちょうちんと花火の絵で、ひと目で「お祭り」とわかる。</li>
+  <li><b>箇条書き</b>・<b>そろえる</b>：「会場・雨のとき・English」を同じ形で並べ、頭をそろえている。</li>
+  <li><b>マーク</b>：「車での来場はご遠慮ください」に禁止マーク。文字が読めなくても伝わる。</li>
+  <li><b>QRコード</b>：くわしい情報（出店一覧・地図）はWebにまかせ、ポスターの情報をしぼっている。</li>
+  <li><b>英語をそえる</b>：タイトルと内容に短い英語。</li>
+  </ul>
+  <h4>もっとよくできる所</h4><ul>
+  <li><b>やさしい日本語</b>：「ご遠慮ください」「中止」はむずかしいかも。「車で 来ないで ください」などにできる。</li>
+  <li><b>文字を大きく</b>：下の「会場」などの文字は小さめ。近くで読む情報と割り切っている、とも言える。</li>
+  </ul>
+  <p class="fine">このアプリで作った架空のポスターです。</p></div></details>`
+  :s.kind==='site'?`<p class="intro">市役所や図書館のWebページを想定した見本です（このアプリで作った<b>架空のサイト</b>です）。</p>
+  <div class="fs" role="img" aria-label="架空のWebサイト：ひばり台市立図書館 夏休みこども読書会"><div class="u"><span>hibaridai-lib.example/summer</span></div><div class="pg">
+  <div class="hdr"><div class="lg">本</div><b>ひばり台市立図書館</b><span><i>English</i>メニュー ☰</span></div>
+  <div class="hero"><svg viewBox="0 0 150 90" aria-hidden="true"><rect x="20" y="30" width="18" height="60" rx="2" fill="#5eead4"/><rect x="40" y="18" width="16" height="72" rx="2" fill="#fde047"/><rect x="58" y="36" width="20" height="54" rx="2" fill="#f87171"/><rect x="80" y="24" width="14" height="66" rx="2" fill="#93c5fd"/><g transform="rotate(14 112 60)"><rect x="98" y="28" width="18" height="62" rx="2" fill="#fdba74"/></g><circle cx="130" cy="20" r="9" fill="#fde047"/></svg>
+  <div class="crumb">ホーム ＞ イベント ＞ 夏休み</div><h5>夏休み こども読書会</h5><p>小学生・中学生 だれでも参加できます</p><span class="tag">8月8日（土）10:00〜</span></div>
+  <div class="sb"><div class="alert"><svg viewBox="0 0 24 24"><path d="M12 3 22 20H2z" fill="#dc2626"/><path d="M12 10v4M12 17v.5" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg><div><b>先着30人。予約がひつようです</b>8月5日までに、下のボタンから予約してください。</div></div>
+  <div class="cards">${[['いつ','8月8日（土）<br>10:00〜11:30','<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'],['どこ','図書館 2階<br>おはなしの部屋','<path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2"/>'],['もちもの','すきな本 1さつ','<path d="M5 8h14l-1 12H6zM9 8a3 3 0 0 1 6 0"/>'],['お金','むりょう','<circle cx="12" cy="12" r="8.5"/><path d="M9 8l3 4 3-4M12 12v5M9.5 13.5h5"/>']].map(([a,b,ic])=>`<div><em><svg viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">${ic}</svg>${a}</em>${b}</div>`).join('')}</div>
+  <span class="cta">予約する<small>Reserve a seat</small></span><p class="note">電話でも予約できます：00-0000-0000</p></div>
+  <div class="ft">ひばり台市立図書館　〒000-0000 ひばり台市本町1-1<br>開館 9:00〜19:00（月曜休館）</div></div></div>
+  <h3><span class="k">01</span>考えよう</h3><p>このページには、どんな工夫がある？ 中学校のページと同じ工夫・ちがう工夫はどれ？ もっとよくできる所はある？</p>
+  <details class="ans"><summary>答えの例を見る（班で話し合ってから開こう）</summary><div class="bd">
+  <h4>使われている工夫</h4><ul>
+  <li><b>大事なことを先に</b>：見出しのすぐ下に「先着30人。予約がひつようです」。読みとばすと参加できないことを最初に書いている。</li>
+  <li><b>目立つ色</b>・<b>マーク</b>：予約のお知らせだけ赤い枠と注意マーク。色を使う場所をしぼっている。</li>
+  <li><b>箇条書き</b>・<b>まとめる</b>・<b>くり返す</b>：「いつ・どこ・もちもの・お金」を同じ形のカードにし、アイコンをそえている。</li>
+  <li><b>大きなボタン</b>：「予約する」が指で押しやすい大きさ。電話での予約方法も書いてある。</li>
+  <li><b>絵で見せる</b>：本の絵で、何のページかがひと目でわかる。</li>
+  <li><b>やさしい日本語</b>：「ひつようです」「むりょう」など、子どもにもわかる言葉を使っている。</li>
+  <li><b>英語をそえる</b>：「English」の切りかえと、ボタンの英語。</li>
+  </ul>
+  <h4>もっとよくできる所</h4><ul>
+  <li><b>図で見せる</b>：図書館までの地図や、当日の流れがない。</li>
+  <li><b>文字を大きく</b>：フッターの住所や開館時間は小さい。</li>
+  </ul>
+  <p class="fine">このアプリで作った架空のサイトです。</p></div></details>`
+  :'');
+  openSheet($('#realSheet'),$('#closeReal'));}
+$('#closeReal').addEventListener('click',closeSheets);
+
+/* シート */
+let opener=null;
+function openSheet(el,focusEl){opener=document.activeElement;el.classList.add('open');focusEl.focus();}
+function closeSheets(){document.querySelectorAll('.sheet.open').forEach(s=>s.classList.remove('open'));if(opener&&opener.focus)opener.focus();opener=null;}
+function guideTab(g){document.querySelectorAll('.gt button').forEach(b=>b.setAttribute('aria-selected',b.dataset.g===g));$('#gS').hidden=g!=='s';$('#gT').hidden=g!=='t';}
+$('#openGuide').addEventListener('click',()=>openSheet($('#sheet'),$('#closeGuide')));
+$('#closeGuide').addEventListener('click',closeSheets);$('#closeSum').addEventListener('click',closeSheets);
+document.querySelector('.gt').addEventListener('click',e=>{const b=e.target.closest('button');if(b)guideTab(b.dataset.g)});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.sheet.open'))closeSheets();});
+const drawPresent=()=>{const p=document.documentElement.classList.contains('present');$('#presentB').setAttribute('aria-pressed',p);$('#presentB').textContent=p?'提示モードをやめる':'提示モードにする';};
+$('#presentB').addEventListener('click',()=>{const p=document.documentElement.classList.toggle('present');try{localStorage.setItem('tl3p',p?'1':'0')}catch(e){};drawPresent();requestAnimationFrame(drawPins);});
+$('#printBlank').addEventListener('click',()=>printWS(false));
+$('#wipe').addEventListener('click',()=>{if(!confirm('この端末に保存された記録（全題材のテスト結果・選んだ工夫・ふりかえり）をすべて消します。よろしいですか？'))return;
+  try{localStorage.removeItem('tl3')}catch(e){}location.reload();});
+drawPresent();drawTimer();drawCards();apply();
+say(...INTRO[mode]);
+}
+</script>
+</body>
+</html>
